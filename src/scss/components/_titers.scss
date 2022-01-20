@@ -1,0 +1,44 @@
+.titers {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 28px 0;
+  
+    &__main {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+  
+    &__list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-name: titers;
+    }
+  
+    &__item {
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        margin-right: 24px;
+    }
+}
+
+@-webkit-keyframes titers {
+    0%{-webkit-transform: translate(0, 0);}
+    100%{-webkit-transform: translate(-100%, 0);}
+}
+@keyframes titers{
+    0%{transform: translate(0, 0);}
+    100%{transform: translate(-100%, 0)}
+}
+  

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+		"title":"Головна"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			@@include('html/_page-menu.htm',{})
+			<main class="page">
+
+				<!-- <div class="circle"></div>
+
+				<style>
+					body {
+						background: #B7BDC0;
+					}
+					.circle {
+						background: #3F9A70;
+						width: 438px;
+						height: 438px;
+						filter: blur(110px);
+						animation: k-blur 10s ease infinite;
+					}
+					@keyframes k-blur {
+						0% {
+							filter: blur(110px);
+						} 
+						50% {
+							filter: blur(100px);
+						}
+						80% {
+							filter: blur(70px);
+						}
+						100% {
+							filter: blur(110px);
+						}
+					}
+				</style> -->
+
+				<!-- @@include('html/_titers.htm', {
+					"text": "hello"
+				}) -->
+				  
+			</main>
+			@@include('html/_footer.htm',{})
+			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_js.htm',{})
+		</div>
+	</body>
+</html>

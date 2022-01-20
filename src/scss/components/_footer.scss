@@ -1,0 +1,27 @@
+// * Footer
+.footer {
+
+}
+
+// * Footer anchor
+.footer__anchor {
+    background: $white;
+    //height: 265px;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        grid-template-rows: repeat(3, clamp(20px, 7vw, 1000px));
+        //grid-auto-rows: auto;
+        gap: 1px;
+
+        &__item {
+            background: #3F9A70;
+            //height: clamp(20px, 7vw, 1000px);
+
+            &:nth-child(7) {
+                grid-column: 7 / 10;
+                grid-row: 1 / -1;
+            }
+        }
+    }
+}

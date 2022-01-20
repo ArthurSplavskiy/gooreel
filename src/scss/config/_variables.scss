@@ -1,0 +1,56 @@
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+// * * * Default font
+$fontFamily: "Geometria";
+$fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
+
+// * * * Settings
+// * Page minimal width
+$minWidth: 320;
+// * Frame width (maket)
+$maxWidth: 1280;
+// * Page container width (0 = without container)
+$maxWidthContainer: 1112;
+$hdWidth: 1600;
+$hdWidth: 1600;
+// * Container padding
+// (30 = 15px left and right, 0 = without padding)
+$containerPadding: 32;
+// * Adaptive type:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+// * Breakpoinds
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
+// * * * Colors
+// * Main text color
+$mainColor: #1E1E1E;
+$lightBlack: #383F43;
+$grey: #B7BDC0;
+$green: #3F9A70;
+$lightGreen:#5FC194;
+$white: #ffffff;
+$black: #000000;
+
+// * trabsition
+$tf: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+// * z-indexes
+$z-indexes: (
+  'header',
+  'page-menu'
+);
