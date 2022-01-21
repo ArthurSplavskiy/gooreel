@@ -1,0 +1,42 @@
+// *  quote-text
+.quote-text {
+    max-width: rem(440);
+    
+    svg {
+        max-width: rem(60);
+        margin-bottom: rem(32);
+
+        @media(max-width: $mobileSmall) {
+            margin-bottom: rem(24);
+        }
+    }
+    p {
+        @extend %geometria16-14-regular;
+        color: $lightBlack;
+    }
+}
+
+// * animate-circle
+.animate-circle {
+    position: absolute;
+    background: #3F9A70;
+    width: rem(438);
+    height: rem(438);
+    filter: blur(110px);
+    animation: k-blur 10s ease infinite;
+    z-index: -1;
+}
+@keyframes k-blur {
+    0% {
+        filter: blur(110px);
+    } 
+    50% {
+        filter: blur(100px);
+    }
+    80% {
+        filter: blur(70px);
+    }
+    100% {
+        filter: blur(110px);
+    }
+}

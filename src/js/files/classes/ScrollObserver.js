@@ -1,4 +1,4 @@
-export default class Observer {
+export default class ScrollObserver {
     constructor (element = null, animationIn = null, animationOut = null, options = {}) {
         this.element = element
         this.animationIn = animationIn
@@ -13,9 +13,15 @@ export default class Observer {
         this.observer = new window.IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    this.animationIn(entry.target)
+                    if(this.animationIn !== null) {
+                        this.animationIn(entry.target)
+                    }
+                    console.log('observer in')
                 } else {
-                    this.animationOut(entry.target)
+                    if(this.animationOut !== null) {
+                        this.animationOut(entry.target)
+                    }
+                    console.log('observer out')
                 }
             })
         }, this.options)

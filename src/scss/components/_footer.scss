@@ -1,26 +1,106 @@
 // * Footer
 .footer {
+    @include adaptiveValue('margin-top', 168, 96, 0);
+    padding-top: rem(72);
+    
+    @media(max-width: $mobileSmall) {
+        padding-top: rem(64);
+    }
 
+    background: $mainColor;
+    color: $white;
+
+    &__copyright {
+        @extend %geometria12-10-regular;
+        @extend %flex-sb;
+        padding: rem(16) 0;
+        border-top: 1px solid $grey2;
+        color: $grey;
+
+        div:first-child {
+            margin-right: rem(20);
+        }
+        img {
+            @media(max-width: $mobileSmall) {
+                max-width: rem(88);
+                vertical-align: middle;
+                padding-bottom: em(4);
+            }
+        }
+    }
+
+    .navigation-block__footer {
+        border-color: $grey2;
+    }
+    .navigation-block__list li:before {
+        display: none;
+    }
+    .links-block {
+        color: $white;
+    }
+    .links-block__title {
+        color: $grey;
+    }
+    .links-block a:before {
+        background: $white;
+    }
 }
 
 // * Footer anchor
 .footer__anchor {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 20.7%;
     background: $white;
-    //height: 265px;
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(15, 1fr);
-        grid-template-rows: repeat(3, clamp(20px, 7vw, 1000px));
-        //grid-auto-rows: auto;
-        gap: 1px;
 
-        &__item {
-            background: #3F9A70;
-            //height: clamp(20px, 7vw, 1000px);
+    @media(max-width: em(970)) {
+        height: rem(202);
+        padding-bottom: 0;
+    }
 
-            &:nth-child(7) {
-                grid-column: 7 / 10;
-                grid-row: 1 / -1;
+    &-grid {
+        svg {
+            @extend %absolute-center;
+            width: 100%;
+            min-width: 970px;
+        }
+    }
+    &-link {
+        @extend %absolute-center;
+        @extend %flex-center;
+        flex-direction: column;
+        border: 2px solid $white;
+        border-radius: 100%;
+        width: percent(250, 1280);
+        height: 100%;
+        transition: background $tf, border-color $tf;
+
+        @media(max-width: em(970)) {
+            width: rem(190);
+        }
+
+        svg {
+            @extend %geometria14-regular;
+            width: percent(72, 250);
+            height: percent(75, 250);
+            transition: transform $tf;
+            margin-bottom: rem(15);
+        }
+
+        @media (any-hover: hover){
+            &:hover{
+                background: $white;
+                border-color: $grey2;
+
+                svg {
+                    transform: translateY(-10px);
+                    path {
+                        stroke: $black;
+                    }
+                }
+                span {
+                    color: $black;
+                }
             }
         }
     }

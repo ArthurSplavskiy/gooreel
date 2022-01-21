@@ -87,7 +87,30 @@
 	justify-content: center;
 }
 
+%flex-sb {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+%absolute-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
 // * Fonts
+%geometria12-10-regular {
+	font-family: inherit;
+	font-size: rem(12);
+	line-height: 162%;
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(10);
+	}
+}
 %geometria14-regular {
 	font-family: inherit;
 	font-size: rem(14);
@@ -107,6 +130,16 @@
 	font-weight: 700;
 }
 
+%geometria16-14-regular {
+	font-family: inherit;
+	font-size: rem(16);
+	line-height: 162%;
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+	}
+}
 %geometria16-regular {
 	font-family: inherit;
 	font-size: rem(16);
@@ -142,11 +175,16 @@
 	font-weight: 700;
 }
 
-%geometria104-bold {
+%geometria104-48-medium {
 	font-family: inherit;
-	font-size: rem(104);
 	line-height: 88.5%;
-	font-weight: 700;
+	font-weight: 500;
+
+	@include adaptiveValue('font-size', 104, 48, $maxWidth, $minWidth, 0);
+
+	@media(min-width: $maxWidth+px) {
+		font-size: rem(104);
+	}
 }
 
 %geometria200-regular {

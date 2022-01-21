@@ -41,13 +41,15 @@ $mobileSmall: em(479.98); // Телефоны S
 $mainColor: #1E1E1E;
 $lightBlack: #383F43;
 $grey: #B7BDC0;
+$grey2: #333333;
 $green: #3F9A70;
 $lightGreen:#5FC194;
 $white: #ffffff;
 $black: #000000;
 
 // * trabsition
-$tf: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+$tf: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+$tf2: 1s cubic-bezier(0.23, 1, 0.32, 1);
 
 // * z-indexes
 $z-indexes: (

@@ -1,0 +1,87 @@
+// * Intro Screen
+.intro-screen {
+    position: relative;
+
+    &__paggination {
+        min-height: rem(24);
+    }
+    &__content {
+        display: flex;
+    }
+    &__titles {
+        flex: 0 0 51.799%;
+    }
+    &__graphics {
+        flex: 0 0 48.211%;
+        position: relative;
+    }
+
+    // .animate-circle {}
+
+    // * Intro Media
+    .intro-media {
+        display: grid;
+        grid-template-columns: em(152) 1fr;
+        margin-bottom: rem(40);
+        @include adaptiveValue('gap', 40, 32, 0);
+
+        @media(max-width: $mobileSmall) {
+            font-size: 14px;
+        }
+
+        @media(max-width: em(900)) {
+            grid-template-columns: 1fr;
+        }
+        
+        &__image-ibg {
+            width: 100%;
+            height: em(261);
+
+            @media(max-width: em(900)) {
+                max-width: em(152);
+            }
+        }
+    }
+
+    // * graphics-block
+    .graphics-block {
+        @media(min-width: em(900)) {
+            position: relative;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        img:not(.grid) {
+
+            @media(min-width: em(900)) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: percent(360, 536);
+                height: percent(468, 561);
+            }
+            @media(max-width: em(900)) {
+                margin-bottom: rem(64);
+            }
+        }
+    }
+
+    // * quote-text
+    .quote-text {
+        max-width: rem(344);
+    }
+
+    h1 {
+        @extend %geometria104-48-medium;
+        position: absolute;
+
+        span {
+            display: block;
+            text-transform: uppercase;
+            &:nth-child(even) {
+                color: $white;
+            }
+        }
+    }
+}
+

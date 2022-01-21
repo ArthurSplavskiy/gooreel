@@ -7,36 +7,46 @@
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			@@include('html/_page-menu.htm',{})
-			<main class="page">
+			<main class="page page_home">
 
-				<!-- <div class="circle"></div>
-
-				<style>
-					body {
-						background: #B7BDC0;
-					}
-					.circle {
-						background: #3F9A70;
-						width: 438px;
-						height: 438px;
-						filter: blur(110px);
-						animation: k-blur 10s ease infinite;
-					}
-					@keyframes k-blur {
-						0% {
-							filter: blur(110px);
-						} 
-						50% {
-							filter: blur(100px);
-						}
-						80% {
-							filter: blur(70px);
-						}
-						100% {
-							filter: blur(110px);
-						}
-					}
-				</style> -->
+				<!-- === === === INTRO BLOCK === === === -->
+				<div class="intro-screen">
+					<div class="animate-circle"></div>
+					<div class="intro-screen__container">
+						<div class="intro-screen__wrapper">
+							<div class="intro-screen__paggination"></div>
+							<div class="intro-screen__content">
+								<div class="intro-screen__titles">
+									<div class="intro-media">
+										<div class="intro-media__image-ibg">
+											<img src="img/intro-1.png" data-reveal alt="Gooreel">
+										</div>
+										<div class="quote-text">
+											<img data-src="img/interface/quote-svg.svg" inline-svg alt="Gooreel">
+											<p>
+												We are a team of passionate slot enthusiasts who keep challenging
+												boundaries through innovative gameplay and exciting features which
+												can be seen in our game portfolio.
+											</p>
+										</div>
+									</div>
+									<h1 data-da=".intro-screen__content, 900, last">
+										<span>WE CREATE</span>
+										<span>AWESOME</span>
+										<span>SLOTS</span>
+									</h1>
+								</div>
+								<div class="intro-screen__graphics">
+									<div class="graphics-block">
+										<img class="grid" data-src="img/icons/graphic-1.svg" inline-svg alt="Gooreel">
+										<img src="img/intro-2.png" data-reveal alt="Gooreel">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- === === === INTRO BLOCK === === === -->
 
 				<!-- @@include('html/_titers.htm', {
 					"text": "hello"

@@ -18,12 +18,18 @@
 
     &__body {
         margin-top: rem(130); // offset 42 + 88 header height
-        padding-bottom: rem(60);
     }
 }
 
 // * Navigation block
 .navigation-block {
+    nav {
+        padding-bottom: rem(56);
+
+        @media(max-width: $mobile) {
+            padding-bottom: rem(40);
+        }
+    }
     &__list {
         display: grid;
         grid-template-columns: 52% 48%;
@@ -60,13 +66,16 @@
     &__footer {
         display: grid;
         grid-template-columns: 52% 48%;
-        margin-top: rem(56);
+        
         padding-top: rem(56);
         border-top: 1px solid $white;
+        padding-bottom: rem(56);
 
         @media(max-width: $mobile) {
             grid-template-columns: 1fr;
-            row-gap: em(32);
+            row-gap: em(40);
+            padding-top: rem(16);
+            padding-bottom: rem(16);
         }
     }
 }
