@@ -1,22 +1,24 @@
-import { _slideToggle } from './utils/functions.js'
 import  MovingTiters from './classes/MovingTiters.js'
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin.js'
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+//import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js'
 import ScrollObserver from './classes/ScrollObserver.js'
 
-gsap.registerPlugin(DrawSVGPlugin,  ScrollTrigger)
+gsap.registerPlugin(DrawSVGPlugin, ScrollToPlugin) // ,  ScrollTrigger
 
 class App {
     constructor () {
         this.footerGridSVG = document.querySelector('.footer__anchor-grid svg')
+        this.footerArrowSVG = document.querySelector('.footer__anchor-link svg')
+        this.sectionDescription = document.querySelectorAll('.section-descr')
+        this.quoteDecorations = document.querySelectorAll('.quote-text__decoration span')
         this.init()
     }
 
     init () {
         this.addEventListeners()
-        this.pinHeader()
-        this.anchorTransition()
+        //this.pinHeader()
         this.scrollAnimation()
         this.introScreenAnimation()
         //this.drawSVG()
@@ -26,10 +28,10 @@ class App {
         })
     }
 
-    drawSVG () {
-        this.shapes = 'path, line'
-        gsap.fromTo(this.shapes, {drawSVG:'0%'}, {duration: 1, drawSVG:"100%", stagger: 0.1})
-    }
+    // drawSVG () {
+    //     this.shapes = 'path, line'
+    //     gsap.fromTo(this.shapes, {drawSVG:'0%'}, {duration: 1, drawSVG:"100%", stagger: 0.1})
+    // }
 
     introScreenAnimation () {
         this.introScreen = document.querySelector('.intro-screen')
@@ -37,10 +39,11 @@ class App {
         this.introRevealImages = this.introScreen.querySelectorAll('img[data-reveal]')
         this.introTimeline = gsap.timeline()
 
-        let shapes = 'path, line'
         
-        //this.introTimeline.fromTo(shapes, {drawSVG:'0%'}, {duration: 1, drawSVG:"100%", stagger: 0.1})
-
+        if(this.introGridSVG) {
+            const svgPath = this.introGridSVG.querySelectorAll('path, line')
+            this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {duration: 1, drawSVG:"100%", stagger: 0.1})
+        }
         if(this.introRevealImages) {
             gsap.utils.toArray(this.introRevealImages).forEach(image => {
                 this.introTimeline.to(image, {
@@ -48,7 +51,6 @@ class App {
                 }) 
             })
         }
-        
     }
 
     pinHeader () {
@@ -71,36 +73,6 @@ class App {
         })
     }
 
-    anchorTransition () {
-        const anchorTimeline = gsap.timeline()
-        let linkAnchors = document.querySelectorAll('[anchor-link]') 
-        
-        gsap.utils.toArray(linkAnchors).forEach(link => { 
-            link.addEventListener("click", event => {
-                event.preventDefault(); 
-
-                document.documentElement.classList.remove('menu-open', 'lock')
-                document.querySelector('.header__menu').classList.remove("menu-open")
-
-                // setTimeout(() => {
-                //     document.documentElement.classList.remove('menu-open', 'lock');
-                //     document.querySelector('.header__menu').classList.remove("menu-open");
-                // }, 400)
-
-                if(event.target.getAttribute("href")) {
-                    anchorTimeline.to(window, {duration: 2.2, scrollTo: event.target.getAttribute("href")})
-                }
-
-                // if(document.querySelector('.page-transition') && event.target.getAttribute("href")) {
-                //     anchorTimeline.to('.page-transition', {duration: 0.6, scaleX: 1, transformOrigin: 'top left'})
-                //     anchorTimeline.to(window, {duration: 0.2, scrollTo: event.target.getAttribute("href")}) 
-                //     anchorTimeline.to('.page-transition', {duration: 0.4, scaleX: 0, transformOrigin: 'top right'})
-                // }
-                
-            }); 
-        });
-    }
-
     documentActions (e) {
         const targetElement = e.target
  
@@ -114,6 +86,14 @@ class App {
                 spollerBody.setAttribute('hidden', 'true')
             }
         }
+        // * anchor transition
+        if (targetElement.closest('[anchor-link]')) {
+            this.anchorTimeline = gsap.timeline()
+			if(targetElement.hasAttribute("href")) {
+                this.anchorTimeline.to(window, {duration: 1.2, scrollTo: targetElement.getAttribute("href")})
+            }
+			e.preventDefault();
+		}
     }
 
     /*
@@ -122,26 +102,30 @@ class App {
     scrollAnimation () {
 
         // * Footer grid draw on viewport
-        if(this.footerGridSVG) {
-            gsap.set(this.footerGridSVG.querySelectorAll('path'), { drawSVG:'0%' })
-            this.d = () => {
-                //let shapes = 'path, line'
-
-                
-
-                
-                // set {drawSVG:'0%'}
-                // to {duration: 1, drawSVG:"100%", stagger: 0.1}
-                gsap.to(this.footerGridSVG.querySelectorAll('path'), {duration: 1, drawSVG:"100%", stagger: 0.1})
-                console.log(this.footerGridSVG.querySelectorAll('path'))
+        if(this.footerGridSVG && this.footerArrowSVG) {
+            const svgPath = [...this.footerGridSVG.querySelectorAll('path'), ...this.footerArrowSVG.querySelectorAll('path')]
+            gsap.set(svgPath, { drawSVG:'0%' })
+            const animationIn = () => {
+                gsap.to(svgPath, {duration: 1, drawSVG:"100%", stagger: 0.1})
             }
-            this.f = () => {
-                let shapes = 'path, line'
-                gsap.to(this.footerGridSVG.querySelectorAll('path'), {duration: 1, drawSVG:'0%', stagger: 0.1})
-            }
-            new ScrollObserver(this.footerGridSVG, this.d, this.f)
+            new ScrollObserver(this.footerGridSVG, animationIn)
+        }
+        // * Footer grid draw on viewport
+        if(this.sectionDescription.length > 0) {
+            new ScrollObserver(this.sectionDescription, this.isView)
+        }
+        if(this.quoteDecorations.length > 0) {
+            new ScrollObserver(this.quoteDecorations, this.isView)
         }
     }
+
+    /*
+        * Functions
+    */
+    isView (el) {
+        !el.classList.contains('is-view') ? el.classList.add('is-view') : null
+    }
+
 
     /*
         * Events

@@ -147,6 +147,37 @@
 	font-weight: 400;
 }
 
+%geometria24-18-regular {
+	font-family: inherit;
+	font-size: rem(24);
+	line-height: 150%;
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(18);
+	}
+}
+
+%geometria24-14-regular {
+	font-family: inherit;
+	font-size: rem(24);
+	line-height: 150%;
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+	}
+}
+%geometria24-18-medium {
+	font-family: inherit;
+	font-size: rem(24);
+	line-height: 150%;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(18);
+	}
+}
 %geometria24-regular {
 	font-family: inherit;
 	font-size: rem(24);
@@ -168,11 +199,15 @@
 	@include adaptiveValue('font-size', 56, 40, 0);
 }
 
-%geometria80-bold {
+%geometria80-40-medium {
 	font-family: inherit;
 	font-size: rem(80);
 	line-height: 88.5%;
-	font-weight: 700;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(40);
+	}
 }
 
 %geometria104-48-medium {
@@ -187,9 +222,13 @@
 	}
 }
 
-%geometria200-regular {
+%geometria200-80-medium {
 	font-family: inherit;
-	font-size: rem(104);
-	line-height: 103.5%;
-	font-weight: 400;
+	font-size: rem(200);
+	line-height: 104%;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(80);
+	}
 }

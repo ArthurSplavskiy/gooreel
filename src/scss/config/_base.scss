@@ -123,3 +123,11 @@ body {
 		object-fit: cover;
 	}
 }
+
+h2 {
+	@extend %geometria80-40-medium;
+	text-transform: uppercase;
+}
+h4 {
+	@extend %geometria24-18-medium;
+}

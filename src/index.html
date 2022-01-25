@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 	@@include('html/_head.htm',{
-		"title":"Головна"
+		"title":"Головна - Gooreel"
 	})
 	<body>
-		<div class="wrapper">
+		<div id="page-top" class="wrapper">
+			@@include('html/_preloader.htm',{})
 			@@include('html/_header.htm',{})
 			@@include('html/_page-menu.htm',{})
-			<main class="page page_home">
+			<main class="page home-page">
 
 				<!-- === === === INTRO BLOCK === === === -->
 				<div class="intro-screen">
@@ -21,14 +22,9 @@
 										<div class="intro-media__image-ibg">
 											<img src="img/intro-1.png" data-reveal alt="Gooreel">
 										</div>
-										<div class="quote-text">
-											<img data-src="img/interface/quote-svg.svg" inline-svg alt="Gooreel">
-											<p>
-												We are a team of passionate slot enthusiasts who keep challenging
-												boundaries through innovative gameplay and exciting features which
-												can be seen in our game portfolio.
-											</p>
-										</div>
+										@@include('html/_quote-text.htm', {
+											"text": "We are a team of passionate slot enthusiasts who keep challenging boundaries through innovative gameplay and exciting features which can be seen in our game portfolio."
+										})
 									</div>
 									<h1 data-da=".intro-screen__content, 900, last">
 										<span>WE CREATE</span>
@@ -48,9 +44,292 @@
 				</div>
 				<!-- === === === INTRO BLOCK === === === -->
 
-				<!-- @@include('html/_titers.htm', {
-					"text": "hello"
-				}) -->
+				<!-- === === === INFO BLOCK === === === -->
+				<section id="s-about">
+					<div class="s-about__container">
+						@@include('html/_info-block.htm', {})
+					</div>
+				</section>
+				<!-- === === === INFO BLOCK === === === -->
+
+				<!-- === === === S-SOLUTIONS === === === -->
+				<section id="s-solutions" class="page-section page-section_green">
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>solutions</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We are a team of slot enthusiasts who keep challenging boundaries through innovative gameplay"
+								})
+								@@include('html/_more-info-link.htm', {
+									"text": "More info",
+									"link": "about.html"
+								})
+							</div>
+						</div>
+
+						<div class="icons-block">
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-1.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Game design and development</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-2.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Game Server and Back office</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-3.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Integration and tech support services</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-4.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>DevOps Solutions & Automation</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-5.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>In-Game Promotools design and development</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-6.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>BIn& Game analytics solutions</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === S-SOLUTIONS === === === -->
+
+				<!-- === === === S-TEAM === === === -->
+				<section id="s-team" class="page-section">
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>Goreel team</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We are a team of slot enthusiasts who keep challenging boundaries through innovative gameplay"
+								})
+								@@include('html/_more-info-link.htm', {
+									"text": "About team",
+									"link": "about.html"
+								})
+							</div>
+						</div>
+
+						@@include('html/_team-grid.htm', {})
+
+					</div>
+				</section>
+				<!-- === === === S-TEAM === === === -->
+
+				<!-- === === === S-TEAM === === === -->
+				<section id="s-jobs" class="page-section">
+					<div class="animate-circle"></div>
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>Feature jobs</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We are a team of slot enthusiasts who keep challenging boundaries through innovative gameplay"
+								})
+							</div>
+						</div>
+
+						<div class="cards-grid">
+							@@include('html/_vacancy-card.htm', {
+								"id": "01",
+								"title": "Promo Marketing Manager",
+								"location": "Kyiv",
+								"offer": "Marketing",
+								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+								"link": "vacancy.html"
+							})
+							@@include('html/_vacancy-card.htm', {
+								"id": "02",
+								"title": "Promo Marketing Manager",
+								"location": "Kyiv",
+								"offer": "Marketing",
+								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+								"link": "vacancy.html"
+							})
+							@@include('html/_vacancy-card.htm', {
+								"id": "03",
+								"title": "Promo Marketing Manager",
+								"location": "Kyiv",
+								"offer": "Marketing",
+								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+								"link": "vacancy.html"
+							})
+						</div>
+
+						<!-- === === === INFO BLOCK === === === -->
+						<article class="info-block">
+							<div class="info-block__wrapper">
+								<div class="info-block__body">
+									<div class="info-block__image-ibg">
+										<img src="img/info-block-2.png" alt="Gooreel">
+									</div>
+									<div class="info-block__content">
+										<div class="info-block__title">
+											<span class="section-descr">Career</span>
+										</div>
+										<div class="info-block__text">
+											<p>Booongo team are professional developers of the best game content in the Gambling and Entertainment. We are lucky to gather gaming fans under one roof to deliver a high-end product to a very dynamic gaming market.</p>
+											@@include('html/_link-btn.htm', {
+												"text": "All vacancies",
+												"link": "vacancy.html"
+											})
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<!-- === === === INFO BLOCK === === === -->
+
+					</div>
+				</section>
+				<!-- === === === S-TEAM === === === -->
+
+				<!-- === === === S-FEATURES NEWS === === === -->
+				<section class="page-section">
+					
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>Features News</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We are a team of slot enthusiasts who keep challenging boundaries through innovative gameplay"
+								})
+								@@include('html/_more-info-link.htm', {
+									"text": "View All",
+									"link": "about.html"
+								})
+							</div>
+						</div>
+
+						<div class="cards-grid">
+							@@include('html/_news-card.htm', {
+								"title": "Goreel grows latam footprint with doradobet",
+								"link": "news.html"
+							})
+							@@include('html/_news-card.htm', {
+								"title": "Goreel grows latam footprint with doradobet",
+								"link": "news.html"
+							})
+							@@include('html/_news-card.htm', {
+								"title": "Goreel grows latam footprint with doradobet",
+								"link": "news.html"
+							})
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === S-FEATURES NEWS === === === -->
+
+				<!-- === === === S-FEATURES NEWS === === === -->
+				<section class="page-section">
+					
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>Partners</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We are a team of slot enthusiasts who keep challenging boundaries through innovative gameplay "
+								})
+							</div>
+						</div>
+
+						<!-- === === PARNERS GRID === === -->
+						<div class="partners-grid">
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-1.svg" alt="Gooreel">
+								</a>
+							</div>
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-2.svg" alt="Gooreel">
+								</a>
+							</div>
+							<div class="square square_circle-link">
+								<div>
+									@@include('html/_more-info-link.htm', {
+										"link": "team.html",
+										"text": "View all"
+									})
+								</div>
+							</div>
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-1.svg" alt="Gooreel">
+								</a>
+							</div>
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-2.svg" alt="Gooreel">
+								</a>
+							</div>
+							<div class="square square_empty"></div>
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-1.svg" alt="Gooreel">
+								</a>
+							</div>
+							<div class="square square_link">
+								<a href="#" target="_blank" rel="nofollow">
+									<img src="img/partners/partner-2.svg" alt="Gooreel">
+								</a>
+							</div>
+						</div>
+						<!-- === === PARNERS GRID === === -->
+
+					</div>
+				</section>
+				<!-- === === === S-FEATURES NEWS === === === -->
+
+				<!-- === === === TITERS === === === -->
+				@@include('html/_titers.htm', {
+					"text": "about us"
+				})
+				<!-- === === === TITERS === === === -->
 				  
 			</main>
 			@@include('html/_footer.htm',{})

@@ -1,0 +1,41 @@
+.info-block {
+
+    &__image-ibg {
+        padding-bottom: 42.267%;
+        margin-bottom: em(72);
+
+        @media(max-width: $mobile) {
+            font-size: 7px;
+        }
+    }
+    &__content {
+        display: grid;
+        
+        @media(min-width: $mobile) {
+            grid-template-columns: percent(192, 1112) 1fr;
+        }
+    }
+    &__title {
+        padding-right: rem(20);
+        @media(max-width: $mobile) {
+            margin-bottom: rem(24);
+            padding-right: 0;
+        }
+    }
+    &__text {
+        p {
+            @extend %geometria24-18-regular;
+            &:not(:last-of-type) {
+                margin-bottom: em(8);
+            }
+        }
+        
+    }
+    .link-btn {
+        margin-top: rem(64);
+
+        @media(max-width: $mobile) {
+            margin-top: rem(32);
+        }
+    }
+}

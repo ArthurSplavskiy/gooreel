@@ -21,7 +21,6 @@ $maxWidth: 1280;
 // * Page container width (0 = without container)
 $maxWidthContainer: 1112;
 $hdWidth: 1600;
-$hdWidth: 1600;
 // * Container padding
 // (30 = 15px left and right, 0 = without padding)
 $containerPadding: 32;
@@ -32,6 +31,7 @@ $responsiveType: 1;
 // Ширина страбатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
 // * Breakpoinds
+$fullHd: em(1920);
 $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
 $tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
 $mobile: em(767.98); // Телефоны L
@@ -48,8 +48,9 @@ $white: #ffffff;
 $black: #000000;
 
 // * trabsition
-$tf: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+$tf: 0.6s cubic-bezier(.215,.61,.355,1);
 $tf2: 1s cubic-bezier(0.23, 1, 0.32, 1);
+$scrollAnimDelay: 0.2s;
 
 // * z-indexes
 $z-indexes: (

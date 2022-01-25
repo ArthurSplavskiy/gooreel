@@ -31,6 +31,7 @@
 
         @media(max-width: em(900)) {
             grid-template-columns: 1fr;
+            margin-bottom: 0;
         }
         
         &__image-ibg {
@@ -69,6 +70,7 @@
     // * quote-text
     .quote-text {
         max-width: rem(344);
+        color: $lightBlack;
     }
 
     h1 {

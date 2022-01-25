@@ -7,17 +7,42 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: $grey;
     transform: translateY(-100%);
     transition: transform 0.8s ease;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     &.menu-open {
         transform: translateY(0);
+
+        .page-menu__lines {
+            span {
+                transform: scale(1.1, 1);
+            }
+        }
     }
 
     &__body {
         margin-top: rem(130); // offset 42 + 88 header height
+    }
+    &__lines {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        span {
+            transform-origin: top;
+            height: 100vh;
+            transform: scale(1.1, 0);
+            transition: transform 1.25s cubic-bezier(.87,-0.14,0,1.04);
+            background: yellow;
+        }
     }
 }
 

@@ -4,7 +4,7 @@
 // Импорт класса наблюдателя.
 // import { ScrollWatcher } from "../../libs/watcher.js";
 // Модуль прокрутки к блоку (раскомментировать при использовании)
-// import { gotoBlock } from "./gotoblock.js";
+//import { gotoBlock } from "./gotoblock.js";
 //====================================================================================================================================================================================================================================================================================================
 
 // Запуск наблюдателя
@@ -72,7 +72,7 @@ export function windowScroll(params) {
 		const header = document.querySelector('.header');
 		clearTimeout(timer);
 
-		if (scrollTop >= window.innerHeight * 2) {
+		if (scrollTop >= 50) { // * window.innerHeight 2
 			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
 
 			if (scrollTop > scrollDirection) {
