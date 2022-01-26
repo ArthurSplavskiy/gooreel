@@ -7,7 +7,7 @@ import * as flsFunctions from "./files/utils/functions.js";
 //flsFunctions.isWebp();
 //flsFunctions.addTouchClass();
 //flsFunctions.addLoadedClass();
-flsFunctions.menuOpen();
+//flsFunctions.menuOpen();
 // flsFunctions.fullVHfix();
 flsFunctions.spollers();
 // flsFunctions.tabs();

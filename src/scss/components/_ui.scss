@@ -36,23 +36,8 @@
     width: rem(438);
     height: rem(438);
     filter: blur(110px);
-    //animation: k-blur 10s ease infinite;
     z-index: -1;
 }
-// @keyframes k-blur {
-//     0% {
-//         filter: blur(110px);
-//     } 
-//     50% {
-//         filter: blur(100px);
-//     }
-//     80% {
-//         filter: blur(70px);
-//     }
-//     100% {
-//         filter: blur(110px);
-//     }
-// }
 
 // * section-descr
 .section-descr {
@@ -321,7 +306,6 @@ a.more-info {
                 top: 0;
                 left: 0;
                 object-fit: cover;
-                
                 transform: scaleY(1.02);
             }
         }
@@ -329,9 +313,6 @@ a.more-info {
         &__image-ibg {
             display: block;
             padding-bottom: 100%;
-            img {
-                transition: filter $tf2;
-            }
         }
         &__link-icon {
             @extend %flex-center;

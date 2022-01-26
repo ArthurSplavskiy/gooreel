@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
 	@@include('html/_head.htm',{
-		"title":"Page not found"
+		"title":"Головна - Gooreel"
 	})
 	<body>
-		<div class="wrapper">
+		<div id="page-top" class="wrapper">
+			@@include('html/_preloader.htm',{})
 			@@include('html/_header.htm',{})
-			<main class="page">
+			@@include('html/_page-menu.htm',{})
+			<main class="page page-404">
+
+				<!-- === === === INTRO BLOCK === === === -->
+				<div class="intro-screen">
+					<div class="animate-circle"></div>
+					<div class="intro-screen__container">
+						<div class="intro-screen__wrapper">
+							<div class="intro-screen__paggination"></div>
+							<div class="intro-screen__content">
+								<div class="intro-screen__titles">
+									<div class="page-404__content">
+										<h2>404</h2>
+										<span>Ooops! Page not found</span>
+										<p>The page you are  looking for cannot be found. Meanwhile, you may return to main page</p>
+										@@include('html/_link-btn.htm', {
+											"text": "Back to home",
+											"link": "index.html"
+										})
+									</div>
+								</div>
+								<div class="intro-screen__graphics">
+									<div class="graphics-block">
+										<img class="grid" data-src="img/icons/graphic-2.svg" inline-svg alt="Gooreel">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- === === === INTRO BLOCK === === === -->
+
+				<!-- === === === TITERS === === === -->
+				@@include('html/_titers.htm', {
+					"text": "homepage"
+				})
+				<!-- === === === TITERS === === === -->
+				  
 			</main>
 			@@include('html/_footer.htm',{})
-            <!-- @@include('html/_popup.htm',{}) -->
-		    @@include('html/_js.htm',{})
+			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_js.htm',{})
 		</div>
 	</body>
 </html>

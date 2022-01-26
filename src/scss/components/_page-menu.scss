@@ -1,4 +1,7 @@
 // * Page menu
+.page-menu._disable {
+    pointer-events: none;
+}
 .page-menu {
     z-index: z('page-menu');
 
@@ -7,23 +10,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateY(-100%);
-    transition: transform 0.8s ease;
     overflow-y: auto;
     overflow-x: hidden;
 
-    &.menu-open {
-        transform: translateY(0);
-
-        .page-menu__lines {
-            span {
-                transform: scale(1.1, 1);
-            }
-        }
-    }
-
     &__body {
         margin-top: rem(130); // offset 42 + 88 header height
+        @media(max-width: $mobileSmall) {
+            margin-top: rem(100);
+        }
     }
     &__lines {
         display: grid;
@@ -37,11 +31,10 @@
         height: 100%;
         z-index: -1;
         span {
+            height: 100%;
             transform-origin: top;
-            height: 100vh;
-            transform: scale(1.1, 0);
-            transition: transform 1.25s cubic-bezier(.87,-0.14,0,1.04);
-            background: yellow;
+            background: $grey;
+            transform: scaleX(1.05);
         }
     }
 }
@@ -86,6 +79,27 @@
             @extend %geometria56-medium;
 
             text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            transition: clip-path 275ms ease;
+            &:hover::before {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            &::before {
+                position: absolute;
+                content: attr(data-content);
+                text-transform: uppercase;
+                color: $lightGreen;
+                clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+                transition: clip-path 275ms ease;
+                z-index: 2;
+            }
+
+            & > div {
+                overflow: hidden;
+            }
+
         }
     }
     &__footer {

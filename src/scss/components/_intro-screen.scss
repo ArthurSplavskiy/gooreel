@@ -76,14 +76,20 @@
     h1 {
         @extend %geometria104-48-medium;
         position: absolute;
+        max-width: rem(660);
 
-        span {
-            display: block;
-            text-transform: uppercase;
+        > div {
+            overflow: hidden;
             &:nth-child(even) {
                 color: $white;
             }
         }
+        // span {
+        //     display: block;
+        //     text-transform: uppercase;
+        //     transform: translateY(100%);
+        //     opacity: 0;
+        // }
     }
 }
 

@@ -1,4 +1,17 @@
 // * Header ===
+html.menu-open .header._header-show {
+	box-shadow: none; 
+	@media(max-width: $mobile) {
+		background: none;
+	}
+}
+html.menu-open .header-shadow {
+	@media(max-width: $mobile) {
+		-webkit-box-shadow: 1px 13px 100px 72px rgba(183, 189, 192, 0.9);
+		-moz-box-shadow: 1px 13px 100px 72px rgba(183, 189, 192, 0.9);
+		box-shadow: 1px 13px 100px 72px rgba(183, 189, 192, 0.9);
+	}
+}
 .header {
 	@extend %geometria16-regular;
 	z-index: z('header');
@@ -11,6 +24,16 @@
 	transition: all $tf2;
 	will-change: transform;
 
+	.header-shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		transition: box-shadow 0.5s ease;
+		z-index: -1;
+		pointer-events: none;
+	}
 	&._header-scroll {
 		transform: translate3d(0, -100%, 0);
 	}
@@ -20,6 +43,9 @@
 		-webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 		-moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 		box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+	}
+	&._menu-active {
+		box-shadow: none;
 	}
 
 	@media(max-width: $mobileSmall) {
@@ -239,6 +265,10 @@
 	background: $black;
 	border-radius: 100%;
 	border: 1px solid $white;
+
+	&._disable {
+		pointer-events: none;
+	}
 
 	@media (any-hover: hover){
 		&:hover{

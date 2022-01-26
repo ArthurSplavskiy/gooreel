@@ -16,12 +16,12 @@ export default class ScrollObserver {
                     if(this.animationIn !== null) {
                         this.animationIn(entry.target)
                     }
-                    console.log('observer in')
+                    //console.log(entry.target)
                 } else {
                     if(this.animationOut !== null) {
                         this.animationOut(entry.target)
                     }
-                    console.log('observer out')
+                    //console.log('observer out')
                 }
             })
         }, this.options)
@@ -30,7 +30,12 @@ export default class ScrollObserver {
             this.element.forEach(el => {
                 this.observer.observe(el)
             })
-        } else {
+        } else if(this.element instanceof Array) {
+            Array.from(this.element).forEach(el => {
+                this.observer.observe(el)
+            })
+        }
+        else {
             this.observer.observe(this.element)
         }
         
