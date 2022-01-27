@@ -21,7 +21,7 @@ flsFunctions.spollers();
 //import "./files/forms/nouislider.js";
 //import "./files/utils/popups.js";
 //import "./files/utils/tippy.js";
-//import "./files/utils/sliders.js";
+import "./files/utils/sliders.js";
 //import './files/scroll/simplebar.js';
 //import './files/scroll/lazyload.js';
 import * as flsScroll from "./files/scroll/scroll.js";

@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-// import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -17,7 +17,7 @@ EffectFade, Lazy, Manipulation
 
 // Стили Swiper
 // Базовые стили
-// import "../../scss/base/swiper.scss";
+import "../../../scss/libs/_swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
 // import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
@@ -99,6 +99,51 @@ function initSliders() {
 				},
 			},
 			*/
+			on: {
+
+			}
+		});
+	}
+
+	if (document.querySelector('.page-slider__slider')) {
+		console.log('dweded')
+		new Swiper('.page-slider__slider', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 40,
+			autoHeight: true,
+			speed: 1000,
+			//lazy: true,
+			// Arrows
+			navigation: {
+				nextEl: '.page-slider-1__next',
+				prevEl: '.page-slider-1__prev',
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,	
+				},
+				1268: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1920: {
+					slidesPerView: 4,
+					spaceBetween: 40,
+				},
+			},
 			on: {
 
 			}

@@ -21,15 +21,26 @@ class App {
     }
 
     init () {
+        this.domCalculate()
         this.splitTextContent()
         this.addEventListeners()
         this.scrollAnimation()
         this.introScreenAnimation()
         this.menuAnimation()
+        this.onResize()
+        this.resizeEvent()
 
         new MovingTiters({
             dom: document.querySelectorAll('.titers')
         })
+    }
+
+    domCalculate () {
+        const pageTitle = document.querySelector('.intro-screen__title')
+        const pageIntroContent = document.querySelector('.intro-screen__content_grid')
+        if(pageTitle && pageIntroContent) {
+            pageIntroContent.style.gridTemplateRows = `${pageTitle.offsetHeight}px`
+        }
     }
 
     splitTextContent () {
@@ -237,6 +248,13 @@ class App {
         document.addEventListener('click', this.documentActions.bind(this))
     }
     removeEventListeners () {
+    }
+
+    onResize () {
+        this.domCalculate()
+    }
+    resizeEvent () {
+        window.addEventListener('resize', this.onResize.bind(this))
     }
 }
 

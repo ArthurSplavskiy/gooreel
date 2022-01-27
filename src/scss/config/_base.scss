@@ -128,6 +128,9 @@ h2 {
 	@extend %geometria80-40-medium;
 	text-transform: uppercase;
 
+	* {
+		word-wrap: break-word;
+	}
 	& > div {
 		overflow: hidden;
 
@@ -136,6 +139,18 @@ h2 {
 		}
 	}
 }
+h3 {
+	@extend %geometria40-medium;
+	text-transform: uppercase
+}
 h4 {
 	@extend %geometria24-18-medium;
+}
+
+.s-mb {
+	margin-bottom: rem(168);
+
+    @media(max-width: $mobileSmall) {
+        margin-bottom: rem(92);
+    }
 }

@@ -68,6 +68,93 @@
     }
 }
 
+// * ABOUT PAGE
+.about-page {
+    .intro-screen__title {
+        max-width: rem(440);
+    }
+    .s-anchievements {
+        position: relative;
+        .animate-circle {
+            bottom: 20%;
+            left: -20%;
+            @media(max-width: $tablet) {
+                left: -40%;
+            }
+            @media(max-width: $mobile) {
+                left: -70%;
+            }
+            @media(max-width: $mobileSmall) {
+                left: -100%;
+            }
+        }
+        .info-grid {
+            margin-bottom: rem(32);
+            @media(max-width: $mobileSmall) {
+                margin-bottom: rem(72);
+            }
+        }
+    }
+}
+
+// * TEAM PAGE 
+.team-page {
+    .intro-screen__title {
+        max-width: rem(300);
+    }
+    .icons-block__item {
+        @media(max-width: $mobileSmall) {
+            grid-template-rows: rem(48) 1fr;
+        }
+    }
+}
+
+// * EMPLOYEE PAGE 
+.employee-page {
+    .s-hobby {
+        position: relative;
+        .animate-circle {
+            bottom: 30%;
+            left: -20%;
+            @media(max-width: $tablet) {
+                left: -40%;
+            }
+            @media(max-width: $mobile) {
+                left: -70%;
+            }
+            @media(max-width: $mobileSmall) {
+                left: -100%;
+            }
+        }
+    }
+    &__quote {
+        display: grid;
+        grid-template-columns: 1fr 3fr 3fr;
+        gap: rem(40);
+
+        @media(max-width: $tablet) {
+            grid-template-columns: 1fr 7fr;
+            gap: rem(10);
+            div {
+                &:nth-child(3){
+                    grid-column: 2 / 3;
+                }
+            }
+            b {
+                display: block;
+                text-align: right;
+            }
+        }
+
+        p {
+            @extend %geometria16-14-regular;
+            &:not(:last-child) {
+                margin-bottom: rem(32);
+            }
+        }
+    }
+}
+
 // * 404 PAGE
 .page-404 {   
     .intro-screen__content {

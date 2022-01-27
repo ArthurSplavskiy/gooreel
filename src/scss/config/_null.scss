@@ -12,6 +12,14 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
   	-webkit-tap-highlight-color: transparent;
 }
+::selection {
+    background-color: #3F9A70;
+    color: white;
+}
+::-moz-selection {
+    background-color: #3F9A70;
+    color: white;
+}
 :focus,
 :active {
 	outline: none;

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+		"title":"Team - Gooreel"
+	})
+	<body>
+		<div id="page-top" class="wrapper">
+			@@include('html/_preloader.htm',{})
+			@@include('html/_header.htm',{})
+			@@include('html/_page-menu.htm',{})
+			<main class="page team-page">
+
+				<!-- === === === INTRO BLOCK === === === -->
+				<div class="intro-screen">
+					<div class="animate-circle"></div>
+					<div class="intro-screen__container">
+						<div class="intro-screen__wrapper">
+							<div class="intro-screen__paggination">
+								@@include('html/_breadcrumbs.htm',{
+									"home": "Main",
+									"current": "Our team"
+								})	
+							</div>
+							<div class="intro-screen__content intro-screen__content_grid">
+								<div class="intro-screen__titles">
+									<div class="intro-screen__title">
+										<h2>Our team</h2>
+									</div>
+								</div>
+								<div class="intro-screen__graphics intro-screen__graphics_small">
+									<div class="graphics-block">
+										<img class="grid" data-src="img/icons/graphic-4.svg" inline-svg alt="Gooreel">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- === === === INTRO BLOCK === === === -->
+
+				<!-- === === === SECTION ABOUT === === === -->
+				<section>
+					<div class="s-about__container">
+
+						<div class="info-block">
+							<div class="info-block__content">
+								<div class="info-block__title">
+									<span class="section-descr">Values</span>
+								</div>
+								<div class="info-block__text">
+									<p>We are a team of passionate slot enthusiasts who keep challenging boundaries through innovative gameplay and exciting features which can be seen in our game portfolio.</p>
+									<p>We strive to craft premium HTML5 games with stunning art and cutting-edge gameplay designed to attract, entertain and retain players’ excitement.</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === SECTION ABOUT === === === -->
+
+				<!-- === === === S-TEAM === === === -->
+				<section class="page-section s-mb">
+					<div class="page-section__container">
+
+						@@include('html/_team-grid.htm', {})
+
+					</div>
+				</section>
+				<!-- === === === S-TEAM === === === -->
+
+				<!-- === === === S-BENEFIT === === === -->
+				<section class="page-section page-section_green">
+					<div class="page-section__container">
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>Benefits</h2>
+							</div>
+							<div class="page-section__description">
+								@@include('html/_quote-text.htm', {
+									"text": "We believe in providing our team members with autonomy and big opportunities and the support to succeed and grow. We learn from mistakes, value thoughtful feedback, and work to continually improve in everything we do."
+								})
+							</div>
+						</div>
+
+						<div class="icons-block">
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-7.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Fast, on-the-job learning cycles</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-8.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Career coaching and 360 feedback</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-9.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>In-office workshops and training</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-9.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Learning and development support</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-10.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Biannual compensation reviews</p>
+								</div>
+							</div>
+
+							<div class="icons-block__item">
+								<div class="icons-block__icon">
+									<img src="img/icons/icon-8.svg" alt="Gooreel">
+								</div>
+								<div class="icons-block__text">
+									<p>Comprehensive health and insurance plans</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === S-BENEFIT === === === -->
+
+				<!-- === === === SECTION INFO === === === -->
+				<section class="page-section page-section_only-title">
+					<div class="s-info__container">
+						
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>We’re growing</h2>
+							</div>
+						</div>
+
+						<div class="info-block">
+							<div class="info-block__content">
+								<div class="info-block__title">
+									<span class="section-descr">Career</span>
+								</div>
+								<div class="info-block__text">
+									<p>And we want you to join us. Find out how you can add your talent and skills to our team and help us push forward our mission!</p>
+									@@include('html/_link-btn.htm', {
+										"text": "Apply",
+										"link": "#popup"
+									})
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === SECTION INFO === === === -->
+
+				<!-- === === === TITERS === === === -->
+				@@include('html/_titers.htm', {
+					"text": "team"
+				})
+				<!-- === === === TITERS === === === -->
+				  
+			</main>
+			@@include('html/_footer.htm',{})
+			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_js.htm',{})
+		</div>
+	</body>
+</html>

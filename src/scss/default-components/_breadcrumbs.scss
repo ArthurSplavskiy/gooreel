@@ -1,0 +1,40 @@
+.breadcrumbs {
+    @extend %geometria14-regular;
+    color: $white;
+	display: flex;
+	align-items: center;
+
+	&__list {
+		overflow-x: auto;
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+
+		li {
+            display: flex;
+			align-items: center;
+
+            &:not(:last-child) {
+                position: relative;
+                margin-right: 8px;
+                display: flex;
+                a {
+                    margin-right: 8px; 
+                }
+                &:after {
+                    content: '-';
+                    transform: scale(2, 1);
+                }
+            }
+            &:last-child {
+                color: $mainColor;
+            }
+			span {
+				white-space: nowrap;
+			}
+            a {
+                white-space: nowrap;
+            }
+		}
+	}
+}

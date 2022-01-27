@@ -1,5 +1,18 @@
 .info-block {
 
+    &_text {
+        .info-block__title {
+            margin-bottom: rem(24);
+        }
+        .info-block__text {
+            p {
+                &:not(:last-of-type) {
+                    margin-bottom: rem(24);
+                }
+            }
+        }
+    }
+
     &__image-ibg {
         padding-bottom: 42.267%;
         margin-bottom: em(72);
@@ -26,10 +39,9 @@
         p {
             @extend %geometria24-18-regular;
             &:not(:last-of-type) {
-                margin-bottom: em(8);
+                margin-bottom: rem(16);
             }
         }
-        
     }
     .link-btn {
         margin-top: rem(64);

@@ -55,6 +55,13 @@
         text-transform: uppercase;
         margin-right: 24px;
 
+        &:nth-child(even) {
+            span {
+                text-stroke: 1px $mainColor;
+                -webkit-text-stroke: 1px $mainColor;
+            }
+        }
+
         span {
             color: transparent;
             text-stroke: 1px $white;
