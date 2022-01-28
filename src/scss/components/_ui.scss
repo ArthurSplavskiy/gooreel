@@ -793,9 +793,55 @@ a.more-info {
 
 // * page slider
 .page-slider {
-    // no class
+    z-index: z('page-slider');
+
+    .page-section__description {
+        @media(max-width: $tablet) {
+            display: none;
+        }
+    }
 
     &__slider {
         overflow: visible!important;
+
+        .news-card {
+            min-width: auto;
+        }
+    }
+    &__buttons {
+        display: flex;
+        border: 1px solid $green;
+        div {
+            @extend %flex-center;
+            width: rem(64);
+            height: rem(64);
+            border-radius: 100%;
+            border: 1px solid $green;
+            cursor: pointer;
+            transition: border-color $tf2;
+
+            &.swiper-button-disabled {
+                border-color: transparent;
+                svg path {
+                    fill: $white;
+                }
+            }
+
+            &:first-child {
+                transform: rotate(180deg);
+            }
+
+            svg {
+                max-width: rem(16);
+
+                path {
+                    transition: fill $tf2;
+                }
+            }
+        }
+
+        @media(max-width: $tablet) {
+            display: none;
+        }
     }
 }

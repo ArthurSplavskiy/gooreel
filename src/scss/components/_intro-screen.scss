@@ -8,6 +8,16 @@
     &__content {
         display: flex;
 
+        &_only-title {
+            .intro-screen__titles {
+                flex: 0 0 100%;
+                margin-bottom: rem(56);
+                @media(max-width: $mobile) {
+                    margin-bottom: rem(32);
+                }
+            }
+        }
+
         &_grid {
             display: grid;
             grid-template-columns: 51.799% 48.211%;

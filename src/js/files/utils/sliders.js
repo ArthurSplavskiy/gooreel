@@ -44,69 +44,7 @@ function initSliders() {
 	// при необходимости отключить
 	bildSliders();
 
-	// Перечень слайдеров
-	if (document.querySelector('.swiper')) {
-		new Swiper('.swiper', {
-			// Подключаем модули слайдера
-			// для конкретного случая
-			//modules: [Navigation, Pagination],
-			/*
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
-			observer: true,
-			observeParents: true,
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
-			speed: 800,
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
-			// Dotts
-			//pagination: {
-			//	el: '.slider-quality__pagging',
-			//	clickable: true,
-			//},
-			// Arrows
-			navigation: {
-				nextEl: '.about__more .more__item_next',
-				prevEl: '.about__more .more__item_prev',
-			},
-			/*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
-			on: {
-
-			}
-		});
-	}
-
 	if (document.querySelector('.page-slider__slider')) {
-		console.log('dweded')
 		new Swiper('.page-slider__slider', {
 			modules: [Navigation],
 			observer: true,
@@ -114,7 +52,8 @@ function initSliders() {
 			slidesPerView: 3,
 			spaceBetween: 40,
 			autoHeight: true,
-			speed: 1000,
+			speed: 800,
+			grabCursor: true,
 			//lazy: true,
 			// Arrows
 			navigation: {
@@ -123,32 +62,33 @@ function initSliders() {
 			},
 			breakpoints: {
 				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
+					slidesPerView: 1.1,
+					spaceBetween: 16,
+				},
+				480: {
+					slidesPerView: 1.5,
+					spaceBetween: 20,
 				},
 				768: {
-					slidesPerView: 2,
+					slidesPerView: 2.5,
 					spaceBetween: 20,
 				},
 				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,	
+					slidesPerView: 2.8,
+					spaceBetween: 40,	
 				},
-				1268: {
+				1134: {
 					slidesPerView: 3,
 					spaceBetween: 40,
 				},
 				1920: {
 					slidesPerView: 4,
 					spaceBetween: 40,
-				},
-			},
-			on: {
-
+				}
 			}
-		});
+		})
 	}
+
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {
