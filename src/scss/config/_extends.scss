@@ -146,6 +146,12 @@
 	line-height: 162%;
 	font-weight: 400;
 }
+%geometria16-medium {
+	font-family: inherit;
+	font-size: rem(16);
+	line-height: 162%;
+	font-weight: 500;
+}
 
 %geometria24-18-regular {
 	font-family: inherit;
@@ -176,16 +182,6 @@
 
 	@media(max-width: $mobileSmall) {
 		font-size: rem(14);
-	}
-}
-%geometria24-18-medium {
-	font-family: inherit;
-	font-size: rem(24);
-	line-height: 150%;
-	font-weight: 500;
-
-	@media(max-width: $mobileSmall) {
-		font-size: rem(18);
 	}
 }
 %geometria24-regular {

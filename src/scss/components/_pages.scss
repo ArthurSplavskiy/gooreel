@@ -155,6 +155,276 @@
     }
 }
 
+// * VACANCY PAGE
+.vacancy-page {
+    .s-vacancy {
+        &__body {
+            display: grid;
+            grid-template-columns: auto 39.57%;
+            gap: rem(135);
+
+            @media(max-width: $tablet) {
+                grid-template-columns: 1fr;
+                gap: rem(32);
+            }
+        }
+        &__promo {
+            .link-btn {
+                margin-top: rem(64);
+            }
+        }
+        &__keywords {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: rem(26);
+            @media(max-width: $tablet) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: rem(16)
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+
+                &:not(:last-child) {
+                    margin-right: rem(32);
+                    padding-right: rem(30);
+                    @media(min-width: $tablet) {
+                        border-right: 1px solid $white;
+                    }
+                }
+            }
+            img {
+                margin-right: rem(14);
+            }
+            span {
+                @extend %geometria24-18-regular;
+            }
+        }
+        &__description {
+            @extend %geometria24-18-regular;
+            p:not(:last-child) {
+                margin-bottom: rem(8);
+            }
+        }
+    }
+}
+
+// * GAME PAGE
+.games-page {
+    .info-block:not(:last-child) {
+        margin-bottom: rem(56);
+        @media(max-width: $mobile) {
+            margin-bottom: rem(24);
+        }
+    }
+    .info-block__text {
+        min-width: 0; // for swiper slider normall view
+    }
+    .game-slider {
+        @media(max-width: $mobile) {
+            .info-block__title {
+                order: 2;
+            }
+        }
+
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid $green;
+            width: rem(64);
+            height: calc(100% - 60px);
+
+            @media(max-width: $mobile) {
+                flex-direction: row;
+                width: 100%;
+                height: rem(48);
+                margin-top: rem(16);
+            }
+        }
+        &__prev-button, &__next-button {
+            @extend %flex-center;
+            border: 1px solid $green;
+            border-radius: 100%;
+            height: rem(64);
+
+            @media(max-width: $mobile) {
+                flex: 0 0 rem(46);
+                height: rem(46);
+            }
+
+            svg {
+                max-width: rem(16);
+
+                path {
+                    transition: fill $tf2;
+                }
+            }
+
+            &.swiper-button-disabled {
+                svg path {
+                    fill: $white;
+                }
+            }
+        }
+        &__prev-button {
+            transform: rotate(180deg);
+        }
+        &__pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            @media(min-width: $mobile) {
+                flex-direction: column;
+                color: transparent;
+                font-size: 0px;
+            }
+            @media(max-width: $mobile) {
+                color: $white;
+            }
+
+            @media(max-width: $mobile) {
+                flex-direction: row;
+            }
+            .swiper-pagination-current {
+                @extend %geometria16-regular;
+                color: $mainColor;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                @media(max-width: $mobile) {
+                    margin-right: rem(4);
+                }
+                @media(min-width: $mobile) {
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: rem(40);
+                        height: 1px;
+                        background: $white;
+                    }
+                }
+            }
+            .swiper-pagination-total {
+                @extend %geometria24-regular;
+                color: $white;
+
+                @media(max-width: $mobile) {
+                    font-size: rem(16);
+                    line-height: 162%;
+                    margin-left: rem(4);
+                }
+            }
+        }
+    }
+    .game-slide {
+
+        @media (any-hover: hover){
+            &:hover{
+                svg {
+                    transform: translate(0);
+                }
+            }
+        }
+        &__image-ibg {
+            display: block;
+            padding-bottom: 39%;
+            margin-bottom: rem(24);
+        }
+        &__description {
+            display: flex;
+            justify-content: space-between;
+            span {
+                @extend %geometria24-18-medium;
+                margin-right: rem(20);
+            }
+            sup {
+                color: $white;
+                @extend %geometria14-regular;
+            }
+            svg {
+                transform: translateX(-5px);
+                transition: transform $tf2;
+                max-width: rem(20);
+                path {
+                    fill: $mainColor;
+                }
+            }
+        }
+    }
+    // * service card 
+    .service-card {
+        border: 1px solid $white;
+        display: flex;
+        overflow: hidden;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
+        @media(max-width: $mobile) {
+            flex-direction: column;
+        }
+
+        &:nth-child(odd) {
+            flex-direction: row-reverse;
+            @media(max-width: $mobile) {
+                flex-direction: column;
+            }
+            .service-card__icon {
+                border-left: 1px solid $white;
+                border-right: none;
+                @media(max-width: $mobile) {
+                    border-left: none;
+                }
+            }
+        }
+        &__icon {
+            @extend %flex-center;
+            flex: 0 0 rem(292);
+            min-height: rem(292);
+            background: $green;
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid $white;
+            @media(max-width: $mobile) {
+                border-right: none;
+                border-bottom: 1px solid $white;
+            }
+        }
+        &__image-graf {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scale(1.01);
+            z-index: 1;
+            svg {
+                max-height: 100%;
+            }
+        }
+        &__image {
+            @extend %absolute-center;
+            z-index: 1;
+        }
+        &__content {
+            padding: rem(32);
+            @media(max-width: $mobile) {
+                padding: rem(24);
+            }
+            h4 {
+                margin-bottom: rem(16);
+            }
+            p {
+                @extend %geometria16-14-regular;
+                &:not(:last-child) {
+                    margin-bottom: rem(16);
+                }
+            }
+        }
+    }
+}
+
 // * 404 PAGE
 .page-404 {   
     .intro-screen__content {

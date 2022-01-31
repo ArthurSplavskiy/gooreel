@@ -161,7 +161,7 @@ class App {
         const targetElement = e.target
  
         // * Language toggle on mobile
-        if(!targetElement.classList.contains('lang-toggle__spoller') && !targetElement.closest('.lang-toggle__spoller')) {
+        if (!targetElement.classList.contains('lang-toggle__spoller') && !targetElement.closest('.lang-toggle__spoller')) {
             const langSpollerButton = document.querySelector('.spollers__title')
             const spollerBody = document.querySelector('.spollers__body')
 
@@ -191,6 +191,19 @@ class App {
                     this.isDisabledMenu()
                     this.menuTimeline.reverse()
                 }
+            }
+        }
+        // * show more
+        if (targetElement.closest('.more-info')) {
+            e.preventDefault()
+    
+            const $moreItemsContainer = targetElement.closest('[data-view-more]')
+            const $squareViewAll = $moreItemsContainer.querySelector('.square-view-all')
+            $moreItemsContainer.classList.toggle('show-more')
+
+            if(targetElement.closest('.square-view-all') || targetElement.classList.contains('.square-view-all')) {
+                $squareViewAll.style.display = 'none'
+                $squareViewAll.hidden = true
             }
         }
     }
@@ -224,11 +237,11 @@ class App {
         // * Draw svg on scroll
         if(this.svgDrawOnScroll.length > 0) {
             const svgPath = Array.from(this.svgDrawOnScroll).map(svg => {
-                return [...svg.querySelectorAll('path'), ...svg.querySelectorAll('path')]
+                return [...svg.querySelectorAll('path'), ...svg.querySelectorAll('rect')]
             })
             gsap.set(svgPath, { drawSVG:'0%' })
             const animationIn = (el) => {
-                gsap.to([...el.querySelectorAll('path'), ...el.querySelectorAll('path')], {duration: 4, drawSVG:"100%", stagger: 0.1})
+                gsap.to([...el.querySelectorAll('path'), ...el.querySelectorAll('rect')], {duration: 4, drawSVG:"100%", stagger: 0.1})
             }
             new ScrollObserver(this.svgDrawOnScroll, animationIn)
         }
@@ -252,6 +265,9 @@ class App {
 
     onResize () {
         this.domCalculate()
+        // this.splitMainTitle.revert()
+        // this.splitSecondTitles.revert()
+        //this.splitLinks.revert()
     }
     resizeEvent () {
         window.addEventListener('resize', this.onResize.bind(this))

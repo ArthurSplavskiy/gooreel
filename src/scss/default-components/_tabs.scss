@@ -4,6 +4,16 @@
 	&._active {
 		display: block;
 	}
+	@media(max-width: $mobile) {
+		.tabs-grid > *:not(:nth-child(-n+4)) {
+			display: none;
+		}
+	}
+	&.show-more {
+		.tabs-grid > * {
+			display: flex;
+		}
+	}
 }
 .tabs-block {
 
@@ -49,9 +59,9 @@
 		height: rem(292);
 		display: none;
 		margin-top: rem(20);
-		margin: 0 auto;
+		margin: rem(40) auto 0 auto;
 
-		@media(max-width: $mobileSmall) {
+		@media(max-width: $mobile) {
 			display: block;
 		}
 	
@@ -127,7 +137,6 @@
 			height: 56px;
 			display: flex;
 			align-items: center;
-			padding: 0 16px;
 
 			&:after {
 				content: '';

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+		"title":"Career - Gooreel"
+	})
+	<body>
+		<div id="page-top" class="wrapper">
+			@@include('html/_preloader.htm',{})
+			@@include('html/_header.htm',{})
+			@@include('html/_page-menu.htm',{})
+			<main class="page game-page">
+
+				<!-- === === === INTRO BLOCK === === === -->
+				<div class="intro-screen">
+					<div class="animate-circle"></div>
+					<div class="intro-screen__container">
+						<div class="intro-screen__wrapper">
+							<div class="intro-screen__paggination">
+
+								<nav class="breadcrumbs">
+									<ul class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+									  <li itemscope itemtype="http://schema.org/ListItem">
+										<a class="breadcrumbs__link" itemprop="item" href="index.html">Main</a>
+										<meta itemprop="position" content="1"/>
+									  </li>
+									  <li itemscope itemtype="http://schema.org/ListItem">
+										<a class="breadcrumbs__link" itemprop="item" href="index.html">Games</a>
+										<meta itemprop="position" content="2"/>
+									  </li>
+									  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+										   <span class="breadcrumbs__link" itemprop="name">GOLD EXPRESS</span>
+										   <meta itemprop="position" content="3"/>
+									  </li>
+									</ul>
+								</nav>
+
+							</div>
+							<div class="intro-screen__content intro-screen__content_only-title">
+								<div class="intro-screen__titles">
+									<div class="intro-screen__title intro-screen__title_black">
+										<h2>GOLD EXPRESS</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- === === === INTRO BLOCK === === === -->
+
+				<div class="game-promo">
+					<div class="game-promo__container">
+						<img data-src="img/icons/graphic-5.svg" inline-svg data-scroll-draw alt="Gooreel">
+						<div class="game-promo__image-ibg">
+							<img src="img/aztec.png" alt="Gooreel">
+						</div>
+					</div>
+				</div>
+
+				<!-- === === === SECTION SLIDER === === === -->
+				<section>
+					<div class="s-about__container">
+
+						<div class="info-block">
+							<div class="info-block__content">
+								<div class="info-block__title">
+									<span class="section-descr">About game</span>
+								</div>
+								<div class="info-block__text">
+									<p>
+										This time Booongo crafted perfect transport for an ideal journey - Gold Express 5x4, 20 pay-lines slot ready and waiting for passengers to hit the exсiting road! Jump into the Gold Express and catch your 6 Gold Coins to launch the Bonus Game and get your chance to win x2000 Jackpot! 3 Train Scatters in the Main Game trigger 8 free spins including wild multipliers to warm up your interest. And along the whole way you will be accompanied by a Piggy Bank Bonus feature which sums all Bonus symbols in both Main & Bonus modes! 
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === SECTION SLIDER === === === -->
+
+				<!-- === === === TITERS === === === -->
+				@@include('html/_titers.htm', {
+					"text": "next Games"
+				})
+				<!-- === === === TITERS === === === -->
+				  
+			</main>
+			@@include('html/_footer.htm',{})
+			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_js.htm',{})
+		</div>
+	</body>
+</html>

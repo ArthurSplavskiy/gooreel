@@ -89,7 +89,7 @@
 							<!-- ACTIVE TABS BODY -->
 							<div class="tabs-block__body">
 
-								<div class="tabs-block__block _tabs-block _active">						
+								<div class="tabs-block__block _tabs-block _active" data-view-more>						
 									<div class="tabs-grid">
 										
 										@@include('html/_vacancy-card.htm', {
@@ -173,7 +173,7 @@
 							</div>
 							<!-- ACTIVE TABS BODY -->
 
-							<div class="tabs-block__block _tabs-block">
+							<div class="tabs-block__block _tabs-block" data-view-more>
 
 								<div class="tabs-grid">
 									@@include('html/_vacancy-card.htm', {
@@ -218,8 +218,17 @@
 									})
 								</div>
 
+								<div class="square-view-all">
+									<div>
+										@@include('html/_more-info-link.htm', {
+											"link": "team.html",
+											"text": "View all"
+										})
+									</div>
+								</div>
+
 							</div>
-							<div class="tabs-block__block _tabs-block">
+							<div class="tabs-block__block _tabs-block" data-view-more>
 
 								<div class="tabs-grid">
 									@@include('html/_vacancy-card.htm', {
@@ -240,8 +249,17 @@
 									})
 								</div>
 
+								<div class="square-view-all">
+									<div>
+										@@include('html/_more-info-link.htm', {
+											"link": "team.html",
+											"text": "View all"
+										})
+									</div>
+								</div>
+
 							</div>
-							<div class="tabs-block__block _tabs-block">
+							<div class="tabs-block__block _tabs-block" data-view-more>
 
 								<div class="tabs-grid">
 									@@include('html/_vacancy-card.htm', {
@@ -278,8 +296,17 @@
 									})
 								</div>
 
+								<div class="square-view-all">
+									<div>
+										@@include('html/_more-info-link.htm', {
+											"link": "team.html",
+											"text": "View all"
+										})
+									</div>
+								</div>
+
 							</div>
-							<div class="tabs-block__block _tabs-block">
+							<div class="tabs-block__block _tabs-block" data-view-more>
 
 								<div class="tabs-grid">
 									@@include('html/_vacancy-card.htm', {
@@ -324,294 +351,55 @@
 									})
 								</div>
 
+								<div class="square-view-all">
+									<div>
+										@@include('html/_more-info-link.htm', {
+											"link": "team.html",
+											"text": "View all"
+										})
+									</div>
+								</div>
+
 							</div>
 
 						</div>
-
-						<!-- <div data-tabs="992" class="tabs">
-							<nav data-tabs-titles class="tabs__navigation">
-								<button type="submit" class="tabs__title _tab-active">
-									All
-									<span>(10)</span>
-								</button>
-								<button type="submit" class="tabs__title">
-									General
-									<span>(8)</span>
-								</button>
-								<button type="submit" class="tabs__title">
-									News
-									<span>(19)</span>
-								</button>
-								<button type="submit" class="tabs__title">
-									Games
-									<span>(6)</span>
-								</button>
-								<button type="submit" class="tabs__title">
-									Interview
-									<span>(6)</span>
-								</button>
-							</nav>
-							<div data-tabs-body class="tabs__content">
-
-								<div class="tabs__body">
-									<div class="tabs-grid">
-										@@include('html/_vacancy-card.htm', {
-											"id": "01",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "02",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "03",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "04",
-											"title": "Python Developer for Big Data project",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "05",
-											"title": "Senior Process Analyst",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "06",
-											"title": "Customer Care Expert — English (2pm — 11pm) ",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "07",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "08",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-									</div>
-								</div>
-
-								<div class="tabs__body">
-									<div class="tabs-grid">
-										@@include('html/_vacancy-card.htm', {
-											"id": "05",
-											"title": "Senior Process Analyst",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "06",
-											"title": "Customer Care Expert — English (2pm — 11pm) ",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "07",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "08",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-									</div>
-								</div>
-
-								<div class="tabs__body">
-									<div class="tabs-grid">
-										@@include('html/_vacancy-card.htm', {
-											"id": "01",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "02",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "03",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "04",
-											"title": "Python Developer for Big Data project",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "05",
-											"title": "Senior Process Analyst",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "06",
-											"title": "Customer Care Expert — English (2pm — 11pm) ",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "07",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "08",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-									</div>
-								</div>
-
-								<div class="tabs__body">
-									<div class="tabs-grid">
-										@@include('html/_vacancy-card.htm', {
-											"id": "05",
-											"title": "Senior Process Analyst",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "06",
-											"title": "Customer Care Expert — English (2pm — 11pm) ",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "07",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "08",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-									</div>
-								</div>
-
-								<div class="tabs__body">
-									<div class="tabs-grid">
-										@@include('html/_vacancy-card.htm', {
-											"id": "05",
-											"title": "Senior Process Analyst",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "06",
-											"title": "Customer Care Expert — English (2pm — 11pm) ",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "07",
-											"title": "Promo Marketing Manager",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-										@@include('html/_vacancy-card.htm', {
-											"id": "08",
-											"title": "UI/UX Designer",
-											"location": "Kyiv",
-											"offer": "Marketing",
-											"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-											"link": "vacancy.html"
-										})
-									</div>
-								</div>
-
-							</div>
-						</div> -->
 
 					</div>
 				</section>
 				<!-- === === === S-TABS === === === -->
 
+				<!-- === === === SECTION INFO === === === -->
+				<section class="page-section page-section_only-title">
+					<div class="s-info__container">
+						
+						<div class="page-section__heading">
+							<div class="page-section__title">
+								<h2>join our team!</h2>
+							</div>
+						</div>
+
+						<div class="info-block">
+							<div class="info-block__content">
+								<div class="info-block__title">
+									<span class="section-descr">Career</span>
+								</div>
+								<div class="info-block__text">
+									<p>there are currently no open vacancies in our company. But you can leave a request with a resume and we will contact you. See you!</p>
+									@@include('html/_link-btn.htm', {
+										"text": "Apply",
+										"link": "#popup"
+									})
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === SECTION INFO === === === -->
+
 				<!-- === === === TITERS === === === -->
 				@@include('html/_titers.htm', {
-					"text": "team"
+					"text": "OUR SOLUTIONS"
 				})
 				<!-- === === === TITERS === === === -->
 				  

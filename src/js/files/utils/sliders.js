@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -44,8 +44,8 @@ function initSliders() {
 	// при необходимости отключить
 	bildSliders();
 
-	if (document.querySelector('.page-slider__slider')) {
-		new Swiper('.page-slider__slider', {
+	if (document.querySelector('#employee-page__slider-1')) {
+		new Swiper('#employee-page__slider-1', {
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
@@ -57,8 +57,8 @@ function initSliders() {
 			//lazy: true,
 			// Arrows
 			navigation: {
-				nextEl: '.page-slider-1__next',
-				prevEl: '.page-slider-1__prev',
+				nextEl: '.employee-page__slider-1__next',
+				prevEl: '.employee-page__slider-1__prev',
 			},
 			breakpoints: {
 				320: {
@@ -86,6 +86,74 @@ function initSliders() {
 					spaceBetween: 40,
 				}
 			}
+		})
+	}
+
+	if (document.querySelector('#vacancy-page__slider-1')) {
+		new Swiper('#vacancy-page__slider-1', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 40,
+			autoHeight: true,
+			speed: 800,
+			grabCursor: true,
+			//lazy: true,
+			// Arrows
+			navigation: {
+				nextEl: '.vacancy-page__slider-1__next',
+				prevEl: '.vacancy-page__slider-1__prev',
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1.1,
+					spaceBetween: 16,
+				},
+				480: {
+					slidesPerView: 1.5,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 2.5,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 2.8,
+					spaceBetween: 40,	
+				},
+				1134: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1920: {
+					slidesPerView: 4,
+					spaceBetween: 40,
+				}
+			}
+		})
+	}
+
+	if (document.querySelector('#game-slider-1')) {
+		new Swiper('#game-slider-1', {
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 40,
+			autoHeight: true,
+			speed: 800,
+			grabCursor: true,
+			//lazy: true,
+			// Arrows
+			navigation: {
+				nextEl: '.game-slider-1__next',
+				prevEl: '.game-slider-1__prev',
+			},
+			pagination: {
+				el: '.game-slider-1__pagination',
+				type: 'fraction',
+			},
 		})
 	}
 
