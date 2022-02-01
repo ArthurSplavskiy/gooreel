@@ -155,62 +155,6 @@
     }
 }
 
-// * VACANCY PAGE
-.vacancy-page {
-    .s-vacancy {
-        &__body {
-            display: grid;
-            grid-template-columns: auto 39.57%;
-            gap: rem(135);
-
-            @media(max-width: $tablet) {
-                grid-template-columns: 1fr;
-                gap: rem(32);
-            }
-        }
-        &__promo {
-            .link-btn {
-                margin-top: rem(64);
-            }
-        }
-        &__keywords {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: rem(26);
-            @media(max-width: $tablet) {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: rem(16)
-            }
-
-            li {
-                display: flex;
-                align-items: center;
-
-                &:not(:last-child) {
-                    margin-right: rem(32);
-                    padding-right: rem(30);
-                    @media(min-width: $tablet) {
-                        border-right: 1px solid $white;
-                    }
-                }
-            }
-            img {
-                margin-right: rem(14);
-            }
-            span {
-                @extend %geometria24-18-regular;
-            }
-        }
-        &__description {
-            @extend %geometria24-18-regular;
-            p:not(:last-child) {
-                margin-bottom: rem(8);
-            }
-        }
-    }
-}
-
 // * GAME PAGE
 .games-page {
     .info-block:not(:last-child) {
@@ -382,8 +326,8 @@
         }
         &__icon {
             @extend %flex-center;
-            flex: 0 0 rem(292);
-            min-height: rem(292);
+            flex: 0 0 rem(288);
+            min-height: rem(288);
             background: $green;
             position: relative;
             overflow: hidden;
@@ -422,6 +366,66 @@
                 }
             }
         }
+    }
+}
+
+// * PARTNERS PAGE
+.partners-page {
+    .s-partners-grid {
+        margin-top: rem(72);
+
+        &.show-more {
+            .partners-grid {
+                & > * {
+                    display: flex;
+                }
+            }
+        }
+        .partners-grid {
+            & > * {
+                display: none;
+            }
+            & > *:nth-child(-n + 26) {
+                display: flex;
+            }
+            
+            .square-view-all {
+                display: block;
+                @media(min-width: $mobile) {
+                    display: none!important;
+                }
+            } 
+        }
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & > .more-info {
+                margin-top: rem(64);
+                svg circle {
+                    fill: $green
+                }
+                @media(max-width: $mobile) {
+                    display: none;
+                }
+            }
+        }
+    } 
+}
+
+// * NEWS PAGE 
+.news-page {
+    ._tabs-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .tabs-block__nav {
+            min-width: 50%;
+        }
+    }
+    .search-form {
+        margin-left: rem(40);
     }
 }
 

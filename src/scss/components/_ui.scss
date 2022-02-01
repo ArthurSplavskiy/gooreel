@@ -306,6 +306,9 @@ a.more-info {
 
                 a.more-info:before {
                     background: $white;
+                    svg circle {
+                        fill: $white!important;
+                    }
                 }
             }
         }
@@ -473,6 +476,7 @@ a.more-info {
     @media(max-width: $pc) {
         grid-template-columns: repeat(4, calc(25vw - 8px));
         grid-template-rows: repeat(2, calc(25vw - 8px));
+        grid-auto-rows: calc(25vw - 8px);
     }
     @media(max-width: $mobile) {
         grid-template-columns: repeat(2, calc(50vw - 16px));
@@ -482,12 +486,13 @@ a.more-info {
     @media(min-width: $pc) {
         grid-template-columns: repeat(4, calc($maxWidthContainer / 4)+px);
         grid-template-rows: repeat(2, ($maxWidthContainer / 4)+px);
+        grid-auto-rows: rem(278);
     }
     @media(min-width: $fullHd) {
         grid-template-columns: repeat(4, calc($hdWidth / 4)+px);
         grid-template-rows: repeat(2, ($hdWidth / 4)+px);
+        grid-auto-rows: rem(400);
     }
-    
 
     .square {
         border: 0.5px solid $green;
@@ -503,6 +508,21 @@ a.more-info {
         &_link {
             @extend %flex-center;
             padding: rem(24);
+        }
+        &_text {
+            @extend %flex-center;
+            padding: rem(48);
+            grid-column: 1 / 3;
+
+            @media(max-width: $mobile) {
+                padding: rem(24);
+            }
+
+            span {
+                @extend %geometria40-medium;
+                text-transform: uppercase;
+                color: $green;
+            }
         }
         &_circle-link {
             
@@ -520,6 +540,9 @@ a.more-info {
 
                 a.more-info:before {
                     background: $white;
+                    svg circle {
+                        fill: $white!important;
+                    }
                 }
             }
         }
@@ -529,7 +552,7 @@ a.more-info {
 // * cards-grid
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(rem(288), 1fr));
     gap: rem(40);
 }
 
@@ -560,7 +583,7 @@ a.more-info {
 
 // * vacancy-card
 .vacancy-card {
-    min-width: rem(290);
+    min-width: rem(288);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -651,7 +674,7 @@ a.more-info {
 
 // * news-card
 .news-card {
-    min-width: rem(290);
+    min-width: rem(288);
     display: flex;
     flex-direction: column;
 
@@ -777,8 +800,8 @@ a.more-info {
     border: 1px solid $green;
 
     @media(max-width: $mobileSmall) {
-        width: rem(292);
-        height: rem(292);
+        width: rem(288);
+        height: rem(288);
     }
 
     &__image-ibg {
@@ -859,6 +882,29 @@ a.more-info {
         border-bottom: 1px solid $white;
         padding-bottom: rem(24);
         margin-bottom: rem(24);
+        a {
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                height: 0.5px;
+                width: 100%;
+                background: $lightBlack;
+                transform-origin: 100% 100%;
+                transform: scale3d(0, 1, 1);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                &:before {
+                    transform-origin: 0 0;
+                    transform: scale3d(1, 1, 1);
+                }
+            }
+        }
     }
     &__list {
         margin-top: rem(24);
@@ -899,24 +945,346 @@ a.more-info {
             align-items: flex-start;
         }
     }
-    &__social-list {
+}
+
+// * game-promo
+.game-promo {
+    margin-bottom: rem(80);
+
+    @media(max-width: $mobileSmall) {
+        margin-bottom: rem(32);
+    }
+    
+    svg {
+        width: 100%;
+    }
+    &__container {
+        position: relative;
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 rem(15);
+    }
+    &__image-ibg {
+        padding-bottom: 50%;
+        grid-column: 2 / -2;
+        grid-row: 2 / -2;
+    }
+}
+
+// * search-form 
+.search-form {
+    position: relative;
+    width: 0;
+    height: 40px;
+    margin-left: auto;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+
+
+    &._active {
+        width: 100%;
+
+        .search-form__input {
+            padding: 0 rem(50) rem(8) 0;
+            opacity: 1;
+            transition: padding 0s linear, opacity 0.5s cubic-bezier(0.45, 0.34, 0.5, 1) 0.5s;
+        }
+        .search-form__btn {
+            border: none;
+            background: none;
+        }
+    }
+
+    &__input {
+        @extend %geometria16-regular;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: $mainColor;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        opacity: 0;
+
+        @include placeholder-content {
+            color: $mainColor;
+        }
+    }
+    &__box {
+        border-bottom: 1px solid $mainColor;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+    &__btn {
+        @extend %flex-center;
+        background: transparent;
+        outline: none;
+        width: rem(44);
+        height: rem(44);
+        border-radius: 100%;
+        background: $mainColor;
+        border: 1px solid $white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        pointer-events: all;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.45, 0.34, 0.5, 1);
+    }
+}
+
+// * article-block
+.article-block {
+    margin-top: rem(64);
+    &__head {
         display: flex;
         flex-wrap: wrap;
+    }
+    &__head-tag {
+        margin-bottom: rem(8);
+        &:first-child {
+            @extend %flex-center;
+            margin-right: rem(164);
+            margin-bottom: rem(24);
 
-        li {
-            &:not(:last-child) {
-                margin-right: rem(16);
+            a {
+                @extend %flex-center;
+                span {
+                    position: relative;
+    
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        height: 0.5px;
+                        width: 100%;
+                        background: $lightBlack;
+                        transform-origin: 100% 100%;
+                        transform: scale3d(0, 1, 1);
+                        transition: transform 0.3s ease;
+                    }
+                }
+                &:hover {
+                    span:before {
+                        transform-origin: 0 0;
+                        transform: scale3d(1, 1, 1);
+                    }
+                }
+            }
+            svg {
+                width: rem(16);
+                transform: rotate(180deg);
+                margin-right: rem(10);
+                path {
+                    fill: $white;
+                }
+            }
+        }
+        &:nth-child(2) {
+            margin-right: rem(60);
+        }
+        &:nth-child(3) {
+            margin-right: rem(60);
+        }
+        &:last-child {
+            @media(min-width: $mobileSmall) {
+                margin-left: auto;
+            }
+        }
+        
+        &:not(:first-child) {
+            span {
+                color: $white;
             }
             a {
-                @extend %geometria16-medium;
+                position: relative;
+    
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    height: 0.5px;
+                    width: 100%;
+                    background: $lightBlack;
+                    transform-origin: 100% 100%;
+                    transform: scale3d(0, 1, 1);
+                    transition: transform 0.3s ease;
+                }
+    
+                &:hover {
+                    &:before {
+                        transform-origin: 0 0;
+                        transform: scale3d(1, 1, 1);
+                    }
+                }
+            }
+        }
+    }
+    &__body {
+        margin: rem(32) auto;
+        @media(min-width: $tablet) {
+            width: 65%;
+        }
+        h1 {
+            @extend %geometria60-40-medium;
+            margin-bottom: rem(56);
+            letter-spacing: em(-0.5);
+        }
+        h1 + p {
+            @extend %geometria24-18-medium;
+            margin-bottom: 0;
+        }
+        img {
+            margin: rem(32) 0;
+        }
+        p {
+            @extend %geometria16-14-regular;
+            &:not(:last-of-type) {
+                margin-bottom: rem(16);
+            }
+        }
+    }
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid $white;
+        margin-top: rem(32);
+        padding-top: rem(24);
+        @media(max-width: $mobileSmall) {
+            margin-top: rem(24);
+        }
+
+        .section-descr {
+            margin-right: rem(20);
+            @media(max-width: $mobileSmall) {
+                margin-right: 0;
+                margin-bottom: rem(24);
+            }
+        }
+        @media(max-width: $mobileSmall) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .social-list {
+            display: flex;
+            flex-wrap: wrap;
+    
+            li {
+                &:not(:last-child) {
+                    margin-right: rem(16);
+                }
+                a {
+                    @extend %geometria16-medium;
+                }
             }
         }
     }
 }
 
-// * game-promo
-.game-promo {
-    &__image-ibg {
-        padding-bottom: 50%;
+// * info-layout
+.info-layout {
+    &__body {
+        display: grid;
+        grid-template-columns: auto 39.57%;
+        gap: rem(135);
+
+        @media(max-width: $tablet) {
+            grid-template-columns: 1fr;
+            gap: rem(32);
+        }
+    }
+    &__promo {
+        .link-btn {
+            margin-top: rem(64);
+        }
+    }
+    &__keywords {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: rem(26);
+        @media(max-width: $tablet) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(16)
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+
+            &:not(:last-child) {
+                margin-right: rem(32);
+                padding-right: rem(30);
+                @media(min-width: $tablet) {
+                    border-right: 1px solid $white;
+                }
+            }
+        }
+        img {
+            margin-right: rem(14);
+        }
+        span {
+            @extend %geometria24-18-regular;
+        }
+    }
+    &__description {
+        @extend %geometria24-18-regular;
+        p:not(:last-child) {
+            margin-bottom: rem(8);
+        }
+    }
+}
+
+// * social-list {
+.social-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        &:not(:last-child) {
+            margin-right: rem(16);
+        }
+        a {
+            @extend %geometria16-medium;
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                height: 0.5px;
+                width: 100%;
+                background: $lightBlack;
+                transform-origin: 100% 100%;
+                transform: scale3d(0, 1, 1);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                &:before {
+                    transform-origin: 0 0;
+                    transform: scale3d(1, 1, 1);
+                }
+            }
+        }
     }
 }

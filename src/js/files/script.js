@@ -198,13 +198,40 @@ class App {
             e.preventDefault()
     
             const $moreItemsContainer = targetElement.closest('[data-view-more]')
-            const $squareViewAll = $moreItemsContainer.querySelector('.square-view-all')
-            $moreItemsContainer.classList.toggle('show-more')
+            const $squareViewAll = $moreItemsContainer ? $moreItemsContainer.querySelector('.square-view-all') : null
+            $moreItemsContainer ? $moreItemsContainer.classList.toggle('show-more') : null
+            const $showMoreLink = $moreItemsContainer ? $moreItemsContainer.querySelector('[data-show-more]') : null
 
-            if(targetElement.closest('.square-view-all') || targetElement.classList.contains('.square-view-all')) {
-                $squareViewAll.style.display = 'none'
-                $squareViewAll.hidden = true
+            const firstText = $showMoreLink ? $showMoreLink.dataset.showMore.split(',')[0] : 'Show more' // default value
+            const secondText = $showMoreLink ? $showMoreLink.dataset.showMore.split(',')[1] : 'Hide'
+
+            if( targetElement.closest('.square-view-all') || targetElement.classList.contains('square-view-all') ) {
+                const root = targetElement.classList.contains('square-view-all') ? targetElement : targetElement.closest('.square-view-all')
+                const span = root.querySelector('.more-info__text')
+                span.innerText = secondText
+                if ( !$moreItemsContainer.classList.contains('show-more') ) {
+                    span.innerText = firstText
+                }
             }
+
+            if( targetElement.closest('.more-info') || targetElement.classList.contains('more-info') ) {
+                const root = targetElement.classList.contains('more-info') ? targetElement : targetElement.closest('.more-info')
+                const span = root.querySelector('.more-info__text')
+                span.innerText = secondText
+                if ( !$moreItemsContainer.classList.contains('show-more') ) {
+                    span.innerText = firstText
+                }
+            }
+
+        }
+        // * search form
+        if (targetElement.closest('.search-form__btn')) {
+            e.preventDefault()
+            const root = targetElement.classList.contains('search-form') ? targetElement : targetElement.closest('.search-form')
+            root.classList.add('_active')
+        }
+        if( !targetElement.closest('.search-form') && document.querySelector('.search-form._active') ) {
+            document.querySelector('.search-form').classList.remove('_active')
         }
     }
 
@@ -237,11 +264,11 @@ class App {
         // * Draw svg on scroll
         if(this.svgDrawOnScroll.length > 0) {
             const svgPath = Array.from(this.svgDrawOnScroll).map(svg => {
-                return [...svg.querySelectorAll('path'), ...svg.querySelectorAll('rect')]
+                return [...svg.querySelectorAll('path'), ...svg.querySelectorAll('rect'), ...svg.querySelectorAll('line')]
             })
             gsap.set(svgPath, { drawSVG:'0%' })
             const animationIn = (el) => {
-                gsap.to([...el.querySelectorAll('path'), ...el.querySelectorAll('rect')], {duration: 4, drawSVG:"100%", stagger: 0.1})
+                gsap.to([...el.querySelectorAll('path'), ...el.querySelectorAll('rect'), ...el.querySelectorAll('line')], {duration: 4, drawSVG:"100%", stagger: 0.1})
             }
             new ScrollObserver(this.svgDrawOnScroll, animationIn)
         }
@@ -252,6 +279,16 @@ class App {
     */
     isView (el) {
         !el.classList.contains('is-view') ? el.classList.add('is-view') : null
+    }
+    isClass (el, cls) {
+        let rootEl 
+        if(el.classList.contains(cls)) {
+            rootEl = el
+        } else {
+            this.isClass()
+        }
+        
+        return rootEl 
     }
 
     /*

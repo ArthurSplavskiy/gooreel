@@ -1,15 +1,100 @@
-<div class="hystmodal" id="myPopup" aria-hidden="true">
-	<div class="hystmodal__wrap">
-		<div class="hystmodal__window" role="dialog" aria-modal="true">
-			<button data-hystclose class="hystmodal__close">Закрыть</button>
+<div class="hystmodal" data-popup="vacancyPopup">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+
+
+			<div class="popup__body">
+				<button data-hystclose class="hystmodal__close">Закрыть</button>
+				<div class="popup__title">
+					<h5>Senior Character Artist</h5>
+				</div>
+				
+				
+				<!-- ============================= FORM ============================= -->
+				<div class="page-form">
+					<form class="form" action="#" data-message="seccess">
+						<div class="form__wrapper">
+							<div class="form__item">
+								<label class="form__label" for="formName">
+									Name
+								</label>
+								<input class="form__input _req" id="formName" type="text" name="name" data-value="Your name" data-error="Fill in the field">
+							</div>
+							<div class="form__item">
+								<label class="form__label" for="formEmailVacancy">
+									Email
+								</label>
+								<input class="form__input _email _req" data-error="Fill in the field" id="formEmailVacancy" type="text" name="email" data-value="example@gmail.com">
+							</div>
+							<div class="form__item">
+								<label class="form__label" for="formPhone">
+									Phone number
+								</label>
+								<input class="form__input _phone _req" data-error="Fill in the field" id="formPhone" type="text" name="phone" data-value="+380">
+							</div>
+							<div class="form__item">
+								<label class="form__label" for="formLinkeDinURL">
+									LinkeDin URL
+								</label>
+								<input class="form__input _req" id="formLinkeDinURL" type="text" name="name" data-value="Paste the link" data-error="Fill in the field">
+							</div>
+							<div class="form__item">
+								<label class="form__label" for="formPortfolioURL">
+									Portfolio URL
+								</label>
+								<input class="form__input _req" id="formPortfolioURL" type="text" name="name" data-value="Paste the link" data-error="Fill in the field">
+							</div>
+							<div class="form__item cform__item_textarea">
+								<label class="form__label " for="formMessage">
+									Message
+								</label>
+								<textarea class="form__input textarea" name="message" id="formMessage" data-value="Please tell us a few words about yourself and why you are interested in this vacancy
+								"></textarea>
+							</div>
+	
+							<div class="form__item form__item_file _form-file">
+								<label class="form__label" for="formFile">
+									СV
+								</label>
+								<input id="formFile" accept=".pdf, .png, .doc" type="file" name="file" class="file__input" data-error="Use only .pdf .doc .png" data-error-max-size="ATTACHED CV FILE (max 2Mb) *" data-placeholder="ATTACHED CV FILE (max 2Mb) *">
+								<div class="file__button">
+									<span class="message-text"></span>
+								</div>
+								<span class="form__icon _icon-pin"></span>
+							</div>
+	
+						</div>
+	
+						<div class="form__controls">
+							<div class="form__submit">
+								<button type="submit" class="page-button">
+									<span></span><span>SEND</span><span></span>
+								</button>
+							</div>
+						</div>
+	
+					</form>
+				</div>
+				<!-- ============================= FORM ============================= -->
+	
+			</div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="popup popup_seccess-message">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__title">
+				<h3>Successfully</h3>
+			</div>
+			<p>We have accepted your application for work. You will be contacted soon</p>
+			<a class="page-button" href="index.html">
+				<span></span><span>Main page</span><span></span>
+			</a>
 		</div>
 	</div>
 </div>
-<div class="hystmodal" id="massageName" aria-hidden="true">
-	<div class="hystmodal__wrap">
-		<div class="hystmodal__window" role="dialog" aria-modal="true">
-			<button data-hystclose class="hystmodal__close">Закрыть</button>
-			Сообщение
-		</div>
-	</div>
-</div>
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+		"title":"News - Gooreel"
+	})
+	<body>
+		<div id="page-top" class="wrapper">
+			@@include('html/_preloader.htm',{})
+			@@include('html/_header.htm',{})
+			@@include('html/_page-menu.htm',{})
+			<main class="page news-page">
+
+				<!-- === === === INTRO BLOCK === === === -->
+				<div class="intro-screen">
+					<div class="animate-circle"></div>
+					<div class="intro-screen__container">
+						<div class="intro-screen__wrapper">
+							<div class="intro-screen__paggination">
+								@@include('html/_breadcrumbs.htm',{
+									"home": "Main",
+									"current": "News"
+								})	
+							</div>
+							<div class="intro-screen__content intro-screen__content_only-title">
+								<div class="intro-screen__titles">
+									<div class="intro-screen__title">
+										<h2>News</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- === === === INTRO BLOCK === === === -->
+
+				<!-- === === === S-TABS === === === -->
+				<section class="s-news">
+					<div class="s-news__container">
+
+						<div class="tabs-block _tabs">
+
+							<div class="_tabs-mobile">
+
+								<div class="tabs-mobile__value"></div>
+
+								<nav class="tabs-block__nav tabs-mobile__options">
+									<div class="tabs-block__nav-wrap">
+										<div class="tabs-block__item _tabs-item _active">All<span>(8)</span></div>
+										<div class="tabs-block__item _tabs-item">General<span>(5)</span></div>
+										<div class="tabs-block__item _tabs-item">News<span>(2)</span></div>
+										<div class="tabs-block__item _tabs-item">Games<span>(4)</span></div>
+										<div class="tabs-block__item _tabs-item">Interview<span>(5)</span></div>
+									</div>
+								</nav>
+
+								<form action="#" class="search-form">
+									<input type="text" class="search-form__input" placeholder="Search">
+									<div class="search-form__box">
+										<button type="submit" class="search-form__btn">
+											<img src="img/interface/search.svg" alt="Gooreel">
+										</button>
+									</div>
+								</form>
+							</div>
+									
+							<!-- ACTIVE TABS BODY -->
+							<div class="tabs-block__body">
+
+								<div class="tabs-block__block _tabs-block _active" data-view-more>						
+									<div class="tabs-grid">
+										
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+										@@include('html/_news-card.htm', {
+											"title": "Goreel grows latam footprint with doradobet",
+											"link": "news.html"
+										})
+
+									</div>
+
+									<div class="square-view-all">
+										<div>
+											<a class="more-info" href="#" data-show-more="Show more,Hide">
+												<span class="more-info__text">Show more</span>
+												<img data-src="img/interface/link-circles.svg" inline-svg alt="Gooreel">
+											</a>
+										</div>
+									</div>
+									
+								</div>
+
+							</div>
+							<!-- ACTIVE TABS BODY -->
+
+							<div class="tabs-block__block _tabs-block" data-view-more>
+
+								<div class="tabs-grid">
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+								</div>
+
+								<div class="square-view-all">
+									<div>
+										<a class="more-info" href="#" data-show-more="Show more,Hide">
+											<span class="more-info__text">Show more</span>
+											<img data-src="img/interface/link-circles.svg" inline-svg alt="Gooreel">
+										</a>
+									</div>
+								</div>
+
+							</div>
+							<div class="tabs-block__block _tabs-block" data-view-more>
+
+								<div class="tabs-grid">
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+								</div>
+
+								<div class="square-view-all">
+									<div>
+										<a class="more-info" href="#" data-show-more="Show more,Hide">
+											<span class="more-info__text">Show more</span>
+											<img data-src="img/interface/link-circles.svg" inline-svg alt="Gooreel">
+										</a>
+									</div>
+								</div>
+
+							</div>
+							<div class="tabs-block__block _tabs-block" data-view-more>
+
+								<div class="tabs-grid">
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+								</div>
+
+								<div class="square-view-all">
+									<div>
+										<a class="more-info" href="#" data-show-more="Show more,Hide">
+											<span class="more-info__text">Show more</span>
+											<img data-src="img/interface/link-circles.svg" inline-svg alt="Gooreel">
+										</a>
+									</div>
+								</div>
+
+							</div>
+							<div class="tabs-block__block _tabs-block" data-view-more>
+
+								<div class="tabs-grid">
+									@@include('html/_news-card.htm', {
+										"title": "Goreel grows latam footprint with doradobet",
+										"link": "news.html"
+									})
+								</div>
+
+								<div class="square-view-all">
+									<div>
+										<a class="more-info" href="#" data-show-more="Show more,Hide">
+											<span class="more-info__text">Show more</span>
+											<img data-src="img/interface/link-circles.svg" inline-svg alt="Gooreel">
+										</a>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</section>
+				<!-- === === === S-TABS === === === -->
+
+				<!-- === === === PAGGING === === === -->
+				@@include('html/_pagging.htm', {})
+				<!-- === === === PAGGING === === === -->
+
+				<!-- === === === TITERS === === === -->
+				@@include('html/_titers.htm', {
+					"text": "Contacts"
+				})
+				<!-- === === === TITERS === === === -->
+				  
+			</main>
+			@@include('html/_footer.htm',{})
+			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_js.htm',{})
+		</div>
+	</body>
+</html>

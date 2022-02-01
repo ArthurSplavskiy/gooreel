@@ -20,7 +20,7 @@ flsFunctions.tabsAdaptive();
 //flsForms.formRating();
 //import "./files/forms/select.js";
 //import "./files/forms/nouislider.js";
-//import "./files/utils/popups.js";
+import "./files/utils/popups.js";
 //import "./files/utils/tippy.js";
 import "./files/utils/sliders.js";
 //import './files/scroll/simplebar.js';

@@ -197,6 +197,7 @@
 	font-weight: 500;
 }
 
+
 %geometria40-medium {
 	font-size: rem(40);
 	font-family: inherit;
@@ -212,6 +213,16 @@
 	@include adaptiveValue('font-size', 56, 40, 0);
 }
 
+%geometria60-40-medium {
+	font-family: inherit;
+	font-size: rem(60);
+	line-height: 88.5%;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(40);
+	}
+}
 %geometria80-40-medium {
 	font-family: inherit;
 	font-size: rem(80);
