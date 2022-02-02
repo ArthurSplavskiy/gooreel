@@ -591,6 +591,10 @@ export function setPhoneMask() {
 						phoneInput.value = ''
 					}
 				}).mask(phoneInput);
+
+				phoneInput.addEventListener('blur', () => {
+					phoneInput.placeholder = ''
+				})
 			}
 		})
 	}
@@ -629,7 +633,6 @@ export function tabsAdaptive() {
 	function init(matchMedia = false) {
 		if (matchMedia.matches || !matchMedia) {
 			tabsMobileBody()
-			console.log('dew')
 		}
 	}
 
@@ -664,5 +667,90 @@ export function tabsAdaptive() {
 		}
 	}
 
+}
+// ====================================================================================================
+
+// FLOAT FORM LABEL ===================================================================================
+export function setFloatLabels() {
+	const floatLabels = document.querySelectorAll('[data-float-label]')
+
+	const init = (el) => {
+		floatLabels.forEach(label => {
+			const element = label.querySelector(`${el}`)
+			const contentName = label.querySelector('.content-name')
+	
+			if(element && element.value) {
+				contentName.classList.add('_active')
+			}
+	
+			if(element) {
+				element.addEventListener('focus', () => {
+					contentName.classList.add('_active')
+				})
+				element.addEventListener('blur', () => {
+					if(!element.value) {
+						contentName.classList.remove('_active')
+					} else {
+						contentName.classList.add('_active')
+					}
+				})
+			}
+		})
+	}
+
+	init('input')
+	init('textarea')
+}
+// ====================================================================================================
+
+// INPUT TYPE FILE ===================================================================================
+export function setFileInputs() {
+	const fileInputs = document.querySelectorAll('[data-input-file]') 
+
+	if(fileInputs.length > 0) {
+		for(let i = 0; i < fileInputs.length; i++) {
+			const fileInputContainer = fileInputs[i];
+			const inputFile = fileInputContainer.querySelector('input');
+			const fileButton = fileInputContainer.querySelector('.icon-pin');
+			const filePreview = fileInputContainer.querySelector('.message-text');
+			const maxSizeError = inputFile.getAttribute('data-error-max-size');
+			const placeholder = inputFile.getAttribute('data-placeholder');
+			filePreview.innerHTML = placeholder
+	
+			// remove file preview
+			fileButton.onclick = () => {
+				if(inputFile.classList.contains('full')) {
+					inputFile.classList.remove('full')
+					inputFile.value = '';
+					filePreview.innerHTML = placeholder
+				}
+			};
+	
+			inputFile.addEventListener('change', () => {
+				//form_remove_error(inputFile);
+				uploadFile(inputFile.files[0]);
+			});
+	
+			function uploadFile(file) {
+			
+				if (!['application/pdf', 'image/png', 'application/msword'].includes(file.type)) {
+					//form_add_error(inputFile)
+					inputFile.value = '';
+					return;
+				}
+			
+				// проверим размер файла (<2 Мб)
+				if (file.size > 2 * 1024 * 1024) {
+					//form_add_error(inputFile)
+					fileInputContainer.querySelector('.form__error').innerHTML = maxSizeError;
+					inputFile.value = '';
+					return;
+				}
+			
+				inputFile.classList.add('full')
+				filePreview.innerHTML = file.name
+			}
+		}
+	}
 }
 // ====================================================================================================

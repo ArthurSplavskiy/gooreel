@@ -1,6 +1,20 @@
+// <div class="checkbox">
+// 	<label class="checkbox__text">
+// 		<input
+// 			checked
+// 			type="checkbox"
+// 			name="agreement"
+// 			class="checkbox__input"
+// 			data-required
+// 		>
+// 		<div class="icon-check"></div>
+// 		<span>ПРИЙМАЮ <a href="privacy-policy.html">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
+// 	</label>
+// </div>
+
 .checkbox {
 	position: relative;
-	// .checkbox__input
+
 	&__input {
 		position: absolute;
 		width: 0;
@@ -8,45 +22,33 @@
 		opacity: 0;
 		visibility: hidden;
 		&:checked + .icon-check {
-			background: #fff url("../img/icons/check.svg") center no-repeat;
+			background: url("../img/interface/checkbox.svg") center no-repeat;
 		}
 	}
 	.icon-check {
 		content: "";
 		align-self: flex-start;
-		margin: 0px 14px 0px 0px;
-		flex: 0 0 20px;
+		margin: 0px rem(20) 0px 0px;
+		flex: 0 0 18px;
 		left: 0;
 		top: 0;
-		width: 20px;
+		width: 18px;
 		height: 18px;
-		background: #fff;
-		border: 1px solid #a7a9ac;
+		background: transparent;
+		border: 2px solid #000;
+		border-radius: 1px;
 	}
-	// .checkbox__text
 	&__text {
+		@extend %geometria14-regular;
 		display: inline-flex;
 		align-items: center;
 		position: relative;
-		font-size: 16px;
-		color: #ffffff;
-		letter-spacing: -0.3px;
-		line-height: calc(20 / 16);
+		color: #000;
 		cursor: pointer;
-	}
-	a {
-		color: #fff;
-		text-decoration: underline;
-		@media (any-hover: hover) {
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-	&._error {
-		.checkbox__text {
-			&:before {
-				border: 1px solid #ee1212;
+		transition: border-color 0.3s ease;
+		&._error {
+			.icon-check {
+				border-color: $red;
 			}
 		}
 	}

@@ -2,99 +2,174 @@
     <div class="hystmodal__wrap">
         <div class="hystmodal__window" role="dialog" aria-modal="true">
 
+			<button data-hystclose class="hystmodal__close">Закрыть</button>
+			<h5>Senior Character Artist</h5>
+			<!-- ============================= FORM ============================= -->
+			<div class="page-form">
+				<form class="form" action="#" data-message="[data-popup='successPopup']" data-test>
+					<fieldset class="form__wrapper">
+						<div class="form__item" data-float-label>
+							<input type="text" name="name">
+							<label>
+								<span class="content-name">Name</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="email" data-required="email">
+							<label>
+								<span class="content-name">Email</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="phone" phone-mask data-required>
+							<label>
+								<span class="content-name">Phone number</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="linkDin-url">
+							<label>
+								<span class="content-name">LinkeDin URL</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="Portfolio-URL">
+							<label>
+								<span class="content-name">Portfolio URL</span>
+							</label>
+						</div>
+						<div class="form__item form__item_textarea" data-float-label>
+							<textarea name="message"></textarea>
+							<label>
+								<span class="content-name">Message</span>
+							</label>
+						</div>
+						<div class="form__item" data-input-file>
+							<input
+								accept=".pdf, .png, .doc"
+								type="file" name="file"
+								class="file__input"
+								data-error="Use only .pdf .doc .png"
+								data-error-max-size="ATTACHED CV FILE (max 2Mb) *"
+								data-placeholder="CV"
+								data-required
+							>
+							<div class="file__button">
+								<span class="message-text"></span>
+							</div>
+							<div class="icon-pin">
+								<img class="cross-icon" src="img/interface/file-cross.svg" alt="Gooreel">
+								<img class="pin-icon" src="img/interface/pin.svg" alt="Gooreel">
+							</div>
+						</div>
 
-			<div class="popup__body">
-				<button data-hystclose class="hystmodal__close">Закрыть</button>
-				<div class="popup__title">
-					<h5>Senior Character Artist</h5>
-				</div>
-				
-				
-				<!-- ============================= FORM ============================= -->
-				<div class="page-form">
-					<form class="form" action="#" data-message="seccess">
-						<div class="form__wrapper">
-							<div class="form__item">
-								<label class="form__label" for="formName">
-									Name
-								</label>
-								<input class="form__input _req" id="formName" type="text" name="name" data-value="Your name" data-error="Fill in the field">
-							</div>
-							<div class="form__item">
-								<label class="form__label" for="formEmailVacancy">
-									Email
-								</label>
-								<input class="form__input _email _req" data-error="Fill in the field" id="formEmailVacancy" type="text" name="email" data-value="example@gmail.com">
-							</div>
-							<div class="form__item">
-								<label class="form__label" for="formPhone">
-									Phone number
-								</label>
-								<input class="form__input _phone _req" data-error="Fill in the field" id="formPhone" type="text" name="phone" data-value="+380">
-							</div>
-							<div class="form__item">
-								<label class="form__label" for="formLinkeDinURL">
-									LinkeDin URL
-								</label>
-								<input class="form__input _req" id="formLinkeDinURL" type="text" name="name" data-value="Paste the link" data-error="Fill in the field">
-							</div>
-							<div class="form__item">
-								<label class="form__label" for="formPortfolioURL">
-									Portfolio URL
-								</label>
-								<input class="form__input _req" id="formPortfolioURL" type="text" name="name" data-value="Paste the link" data-error="Fill in the field">
-							</div>
-							<div class="form__item cform__item_textarea">
-								<label class="form__label " for="formMessage">
-									Message
-								</label>
-								<textarea class="form__input textarea" name="message" id="formMessage" data-value="Please tell us a few words about yourself and why you are interested in this vacancy
-								"></textarea>
-							</div>
-	
-							<div class="form__item form__item_file _form-file">
-								<label class="form__label" for="formFile">
-									СV
-								</label>
-								<input id="formFile" accept=".pdf, .png, .doc" type="file" name="file" class="file__input" data-error="Use only .pdf .doc .png" data-error-max-size="ATTACHED CV FILE (max 2Mb) *" data-placeholder="ATTACHED CV FILE (max 2Mb) *">
-								<div class="file__button">
-									<span class="message-text"></span>
-								</div>
-								<span class="form__icon _icon-pin"></span>
-							</div>
-	
+					</fieldset>
+
+					<div class="form__controls">
+						<button type="submit" class="link-btn">
+							<span>Send</span>
+							<img data-src="img/interface/link-btn.svg" inline-svg alt="Gooreel">
+						</button>
+						<div class="checkbox">
+							<label class="checkbox__text">
+								<input
+									checked
+									type="checkbox"
+									name="agreement"
+									class="checkbox__input"
+									data-required
+								>
+								<div class="icon-check"></div>
+								<span>I agree to the processing of personal data</span>
+							</label>
 						</div>
-	
-						<div class="form__controls">
-							<div class="form__submit">
-								<button type="submit" class="page-button">
-									<span></span><span>SEND</span><span></span>
-								</button>
-							</div>
-						</div>
-	
-					</form>
-				</div>
-				<!-- ============================= FORM ============================= -->
-	
+					</div>
+
+				</form>
 			</div>
-
+			<!-- ============================= FORM ============================= -->
 
         </div>
     </div>
 </div>
 
-<div class="popup popup_seccess-message">
-	<div class="popup__content">
-		<div class="popup__body">
-			<div class="popup__title">
-				<h3>Successfully</h3>
+<div class="hystmodal" data-popup="feedbackPopup">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+
+			<button data-hystclose class="hystmodal__close">Закрыть</button>
+			<h5>Feedback from</h5>
+			<!-- ============================= FORM ============================= -->
+			<div class="page-form">
+				<form class="form" action="#" data-message="[data-popup='successPopup']" data-test>
+					<fieldset class="form__wrapper">
+						<div class="form__item" data-float-label>
+							<input type="text" name="name">
+							<label>
+								<span class="content-name">Name</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="email" data-required="email">
+							<label>
+								<span class="content-name">Email</span>
+							</label>
+						</div>
+						<div class="form__item" data-float-label>
+							<input type="text" name="phone" phone-mask data-required>
+							<label>
+								<span class="content-name">Phone number</span>
+							</label>
+						</div>
+						<div class="form__item form__item_textarea" data-float-label>
+							<textarea name="message"></textarea>
+							<label>
+								<span class="content-name">Message</span>
+							</label>
+						</div>
+
+					</fieldset>
+
+					<div class="form__controls">
+						<button type="submit" class="link-btn">
+							<span>Send</span>
+							<img data-src="img/interface/link-btn.svg" inline-svg alt="Gooreel">
+						</button>
+						<div class="checkbox">
+							<label class="checkbox__text">
+								<input
+									checked
+									type="checkbox"
+									name="agreement"
+									class="checkbox__input"
+									data-required
+								>
+								<div class="icon-check"></div>
+								<span>I agree to the processing of personal data</span>
+							</label>
+						</div>
+					</div>
+
+				</form>
 			</div>
-			<p>We have accepted your application for work. You will be contacted soon</p>
-			<a class="page-button" href="index.html">
-				<span></span><span>Main page</span><span></span>
-			</a>
-		</div>
-	</div>
+			<!-- ============================= FORM ============================= -->
+
+        </div>
+    </div>
 </div>
 
+<div class="hystmodal" data-popup="successPopup">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+
+			<button data-hystclose class="hystmodal__close">Закрыть</button>
+			<h5>Success!</h5>
+			<p>Your application has been accepted, our manager will contact you soon</p>
+			<div data-hystclose class="link-btn">
+				<span>Close</span>
+				<img data-src="img/interface/link-btn.svg" inline-svg alt="Gooreel">
+			</div>
+
+        </div>
+    </div>
+</div>

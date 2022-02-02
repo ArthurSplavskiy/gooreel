@@ -1,8 +1,8 @@
 // Импорт функционала ==============================================================================================================================================================================================================================================================================================================================
 // Вспомогательные функции
-import { _slideUp, _slideDown, _slideToggle, setPhoneMask } from "../utils/functions.js";
+import { _slideUp, _slideDown, _slideToggle, setPhoneMask, setFloatLabels, setFileInputs } from "../utils/functions.js";
 // Модуль попапа
-// import { popupItem } from "../popups.js";
+import { popupItem } from "../utils/popups.js";
 // Модуль прокрутки к блоку
 // import { gotoBlock } from "../scroll/gotoblock.js";
 //==============================================================================================================================================================================================================================================================================================================================
@@ -21,6 +21,8 @@ export function formFieldsInit() {
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
 
 	setPhoneMask()
+	setFloatLabels()
+	setFileInputs()
 
 	if (formFields.length) {
 		formFields.forEach(formField => {
@@ -114,11 +116,15 @@ export let formValidate = {
 		formRequiredItem.parentElement.classList.add('_error');
 		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-		if (validationUnfillError) {
+		if (validationUnfillError && formRequiredItem.type !== "checkbox") {
 			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + validationUnfillError + '</div>');
 		}
 	},
 	addUncorrectError(formRequiredItem) {
+		formRequiredItem.classList.add('_error');
+		formRequiredItem.parentElement.classList.add('_error');
+		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
+		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
 		if (validationUncorrectError) {
 			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + validationUncorrectError + '</div>');
 		}
@@ -136,13 +142,16 @@ export let formValidate = {
 			const el = inputs[index];
 			el.parentElement.classList.remove('_focus');
 			el.classList.remove('_focus');
-			el.value = el.dataset.placeholder;
+			el.value  = ''; // el.dataset.placeholder
 		}
 		let checkboxes = form.querySelectorAll('.checkbox__input');
 		if (checkboxes.length > 0) {
 			for (let index = 0; index < checkboxes.length; index++) {
 				const checkbox = checkboxes[index];
-				checkbox.checked = false;
+				//checkbox.checked = false;
+				if(checkbox.hasAttribute('value')) {
+					checkbox.removeAttribute('value')
+				}
 			}
 		}
 		let selects = form.querySelectorAll('select');
@@ -152,6 +161,27 @@ export let formValidate = {
 				const select_default_value = select.getAttribute('data-default');
 				select.value = select_default_value;
 				select_item(select);
+			}
+		}
+		// float label
+		let floatLabels = form.querySelectorAll('.content-name');
+		if (floatLabels.length > 0) {
+			for (let index = 0; index < floatLabels.length; index++) {
+				const label = floatLabels[index];
+				label.classList.remove('_active')
+			}
+		}
+		// file input
+		let fileInputs = form.querySelectorAll('.file__input');
+		let previewFileText = form.querySelectorAll('.message-text');
+		if (fileInputs.length > 0) {
+			for (let index = 0; index < fileInputs.length; index++) {
+				const fileInput = fileInputs[index];
+				fileInput.classList.remove('full')
+			}
+			for (let index = 0; index < previewFileText.length; index++) {
+				const text = previewFileText[index];
+				text.innerText = fileInputs[0].getAttribute('data-placeholder') || ''
 			}
 		}
 	},
@@ -190,7 +220,7 @@ export function formSubmit(validate) {
 					form.classList.remove('_sending');
 					if (message) {
 						// Нужно подключить зависимость
-						popupItem.open(`#${message}`);
+						popupItem.open(`${message}`);
 					}
 					formValidate.formClean(form);
 				} else {
@@ -203,7 +233,7 @@ export function formSubmit(validate) {
 				e.preventDefault();
 				if (message) {
 					// Нужно подключить зависимость
-					popupItem.open(`#${message}`);
+					popupItem.open(`${message}`);
 				}
 				formValidate.formClean(form);
 			}

@@ -4,7 +4,7 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin.js'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js'
 import { SplitText } from "gsap/SplitText.js"
 import ScrollObserver from './classes/ScrollObserver.js'
-import { bodyLockToggle, bodyLockStatus } from "./utils/functions.js";
+import { bodyLockToggle, bodyLockStatus, _slideToggle } from "./utils/functions.js";
 
 gsap.registerPlugin(DrawSVGPlugin, ScrollToPlugin, SplitText)
 
@@ -56,16 +56,18 @@ class App {
 
     introScreenAnimation () {
         this.introScreen = document.querySelector('.intro-screen')
-        this.introGridSVG = this.introScreen.querySelector('svg.grid')
-        this.introRevealImages = this.introScreen.querySelectorAll('img[data-reveal]')
-        this.introQuote = this.introScreen.querySelector('.quote-text')
-        this.introTimeline = gsap.timeline()
-        
-        if(this.introGridSVG) {
+
+        if(this.introScreen) {
+            this.introGridSVG = this.introScreen.querySelector('svg.grid')
+            this.introRevealImages = this.introScreen.querySelectorAll('img[data-reveal]')
+            this.introQuote = this.introScreen.querySelector('.quote-text')
+            this.introTimeline = gsap.timeline()
+        }
+        if(this.introGridSVG && this.introTimeline) {
             const svgPath = this.introGridSVG.querySelectorAll('path, line')
             this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {duration: 2, drawSVG:"100%", stagger: 0.1, delay: 1})
         }
-        if(this.splitMainTitle.isSplit && this.splitMainTitle.lines) {
+        if(this.splitMainTitle.isSplit && this.splitMainTitle.lines && this.introTimeline) {
             this.introTimeline.fromTo(this.splitMainTitle.lines, 
             {
                 yPercent: 100,
@@ -77,7 +79,7 @@ class App {
                 stagger: 0.2
             }, '1')
         }
-        if(this.introQuote) {
+        if(this.introQuote && this.introTimeline) {
             this.introTimeline.fromTo(this.introQuote, {
                 autoAlpha: 0,
                 x: -20
@@ -88,21 +90,21 @@ class App {
                 delay: 0.3
             }, '1')
         }
-        if(this.introRevealImages) {
+        if(this.introRevealImages && this.introTimeline) {
             gsap.utils.toArray(this.introRevealImages).forEach(image => {
                 this.introTimeline.to(image, {
                     onEnter: () => image.classList.add('_reveal')
                 }, '2') 
             })
         }
-        if(this.header) {
+        if(this.header && this.introTimeline) {
             this.introTimeline.fromTo(this.header, {yPercent: -100}, {yPercent: 0}, '-=2.5')
             this.introTimeline.call(_ => {
                 this.header.style = ''
             })
         }
         // * h2 Animation
-        if(this.splitSecondTitles.lines.length > 0) {
+        if(this.splitSecondTitles.lines.length > 0 && this.introTimeline) {
             this.introTimeline.call(_ => {
                 const animationIn = (el) => {
                     gsap.to(el, {
@@ -124,8 +126,12 @@ class App {
         }
 
         this.headerMenu = document.querySelector('.page-menu')
-        this.headerMenuBody = this.headerMenu.querySelector('.page-menu__body')
-        this.menuLines = this.headerMenu.querySelectorAll('.page-menu__lines span')
+
+        if(this.headerMenu) {
+            this.headerMenuBody = this.headerMenu.querySelector('.page-menu__body')
+            this.menuLines = this.headerMenu.querySelectorAll('.page-menu__lines span')
+        }
+
         this.menuTimeline = gsap.timeline({
             onStart: this.isDisabledMenu,
             onComplete: this.isDisabledMenu,
@@ -165,9 +171,9 @@ class App {
             const langSpollerButton = document.querySelector('.spollers__title')
             const spollerBody = document.querySelector('.spollers__body')
 
-            if(langSpollerButton.classList.contains('_spoller-active')) {
+            if(langSpollerButton && langSpollerButton.classList.contains('_spoller-active')) {
                 langSpollerButton.classList.remove('_spoller-active')
-                spollerBody.setAttribute('hidden', 'true')
+                _slideToggle(spollerBody)
             }
         }
         // * anchor transition
@@ -208,18 +214,24 @@ class App {
             if( targetElement.closest('.square-view-all') || targetElement.classList.contains('square-view-all') ) {
                 const root = targetElement.classList.contains('square-view-all') ? targetElement : targetElement.closest('.square-view-all')
                 const span = root.querySelector('.more-info__text')
-                span.innerText = secondText
-                if ( !$moreItemsContainer.classList.contains('show-more') ) {
-                    span.innerText = firstText
+
+                if(span) {
+                    span.innerText = secondText
+                    if ( !$moreItemsContainer.classList.contains('show-more') ) {
+                        span.innerText = firstText
+                    }
                 }
             }
 
             if( targetElement.closest('.more-info') || targetElement.classList.contains('more-info') ) {
                 const root = targetElement.classList.contains('more-info') ? targetElement : targetElement.closest('.more-info')
                 const span = root.querySelector('.more-info__text')
-                span.innerText = secondText
-                if ( !$moreItemsContainer.classList.contains('show-more') ) {
-                    span.innerText = firstText
+
+                if(span) {
+                    span.innerText = secondText
+                    if ( !$moreItemsContainer.classList.contains('show-more') ) {
+                        span.innerText = firstText
+                    }
                 }
             }
 

@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Front-end «NEW_PROJECT_NAME»</title>
-	</head>
+	@@include('html/_head.htm',{
+		"title":"Sitemap - Gooreel"
+	})
 	<body>
 		<div class="rootpage">
-			<h1>Верстка «NEW_PROJECT_NAME»</h1>
-			<div class="rootpage__info">
-				Особенности проекта
-			</div>
-			<h2>Готовые страницы:</h2>
+			<h1>Front-end «Gooreel»</h1>
+			<h2>Готові сторінки:</h2>
 			<ol class="rootpage__list">
-				<li><a target="_blank" href="home.html">Главная</a></li>
+				<li><a target="_blank" href="index.html">Головна</a></li>
+				<li><a target="_blank" href="about.html">About</a></li>
+				<li><a target="_blank" href="team.html">Team</a></li>
+				<li><a target="_blank" href="career.html">Career</a></li>
+				<li><a target="_blank" href="game.html">Game</a></li>
+				<li><a target="_blank" href="games.html">Games</a></li>
+				<li><a target="_blank" href="vacancy.html">Vacancy</a></li>
+				<li><a target="_blank" href="news.html">News</a></li>
+				<li><a target="_blank" href="partners.html">Partners</a></li>
+				<li><a target="_blank" href="employee.html">Employee</a></li>
+				<li><a target="_blank" href="article.html">Article</a></li>
+				<li><a target="_blank" href="contacts.html">Contacts</a></li>
+				<li><a target="_blank" href="404.html">404</a></li>
 			</ol>
 			<h2>Попапы:</h2>
 			<ol class="rootpage__list">
-				<li><a target="_blank" href="home.html#"></a></li>
+				<li><a data-popup-link="[data-popup='vacancyPopup']" href="">Vacancy</a></li>
+				<li><a data-popup-link="[data-popup='feedbackPopup']" href="">Feedback</a></li>
+				<li><a data-popup-link="[data-popup='successPopup']" href="">Success</a></li>
 			</ol>
-			<div class="rootpage__tnx">
-				<h2>Спасибо за заказ!</h2>
-				<p>Буду рад (а) хорошему отзыву.</p>
-				<p>Обращайтесь еще!</p>
-			</div>
-			<div class="rootpage__contacts">
-				<h2>Мои контакты:</h2>
-				<p>Почта: <a href="mailto:email@gmail.com">email@gmail.com</a></p>
-				<p>Телефон: <a href="tel:8800800800">8 800 800 800</a></p>
-				<p>Соц. сеть: <a href="">ссылка на соц. сеть</a></p>
-			</div>
 		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
 	</body>
 	<style>
 		@charset "UTF-8";

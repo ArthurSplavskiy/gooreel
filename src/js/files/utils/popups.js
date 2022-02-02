@@ -1,7 +1,7 @@
 // Подключение дополнения
 import "../../../libs/hystmodal.min.js";
 // Подключение стилей
-import "../../../scss/libs/_hystmodal.scss";
+// import "../../../scss/libs/_hystmodal.scss";
 
 // Импорт зависимостей
 // import { getHash, setHash } from "./functions.js";
@@ -21,7 +21,8 @@ import "../../../scss/libs/_hystmodal.scss";
 export let popupItem;
 export function initPopups() {
 	popupItem = new HystModal({
-		linkAttributeName: "data-popup",
+		linkAttributeName: "data-popup-link",
+		waitTransitions: true,
 		// beforeOpen: function (popupItem) {
 		// 	const hash = popupItem.openedWindow.id;
 		// 	setHash(`#${hash}`);

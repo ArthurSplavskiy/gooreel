@@ -69,6 +69,7 @@
     height: rem(65);
     display: inline-flex;
     align-items: center;
+    justify-content: space-between;
     background: $mainColor;
     border: 1px solid $white;
     transition: all $tf2;

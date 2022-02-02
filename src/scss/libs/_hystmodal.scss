@@ -17,7 +17,7 @@
     pointer-events: none;
     z-index: 98;
     opacity: 0;
-    transition: opacity 0.15s ease;
+    transition: opacity 0.5s ease;
     background-color: black;
 }
 .hystmodal__shadow--show{
@@ -40,6 +40,29 @@
     justify-content: flex-start;
     z-index: 99;
     visibility: hidden;
+
+    &[data-popup="successPopup"] {
+        h5 {
+            text-align: center;
+            margin-bottom: rem(24);
+        }
+        p {
+            text-align: center;
+            @extend %geometria16-14-regular;
+        }
+        .link-btn {
+            margin-top: rem(32);
+            @media(max-width: $mobileSmall) {
+                width: 100%;
+            }
+        }
+        .hystmodal__window {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }
 .hystmodal--active{
     opacity: 1;
@@ -59,19 +82,30 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    padding: rem(16);
 }
 .hystmodal__window {
-    margin: 50px 0;
+    padding: rem(56) rem(40) rem(40) rem(40);
     box-sizing: border-box;
     flex-shrink: 0;
     flex-grow: 0;
-    background: #fff;
-    width: 600px;
-    max-width: 100%;
+    background: $grey;
+    width: 100%;
+    max-width: rem(536);
     overflow: visible;
-    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
     transform: scale(0.9);
     opacity: 0;
+    border: 1px solid $white;
+    overflow: hidden;
+    @media(max-width: $mobile) {
+        padding: rem(56) rem(14);
+    }
+
+    h5 {
+        @extend %geometria24-18-medium;
+        margin-bottom: rem(24);
+    }
 }
 .hystmodal--active .hystmodal__window{
     transform: scale(1);
@@ -80,34 +114,18 @@
 .hystmodal__close{
     position: absolute;
     z-index: 10;
-    top:0;
-    right: -40px;
+    top: -1px;
+    right: -1px;
     display: block;
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
+    width: rem(48);
+    height: rem(48);
+    background-color: $mainColor;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' stroke='%23fff' stroke-linecap='square' stroke-miterlimit='50' stroke-width='2' d='M22 2L2 22'/%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='square' stroke-miterlimit='50' stroke-width='2' d='M2 2l20 20'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    border: none;
+    padding: rem(10);
+    background-image: url("../img/interface/cross.svg");
     font-size: 0;
     cursor: pointer;
     outline: none;
-}
-.hystmodal__close:focus{
-    outline: 2px dotted #afb3b9;
-    outline-offset: 2px;
-}
-@media all and (max-width:767px){
-    .hystmodal__close{
-        top:10px;
-        right: 10px;
-        width: 24px;
-        height: 24px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' stroke='%23111' stroke-linecap='square' stroke-miterlimit='50' stroke-width='2' d='M22 2L2 22'/%3E%3Cpath fill='none' stroke='%23111' stroke-linecap='square' stroke-miterlimit='50' stroke-width='2' d='M2 2l20 20'/%3E%3C/svg%3E");
-    }
-    .hystmodal__window{
-        margin: 0;
-    }
+    border: 1px solid $white;
 }

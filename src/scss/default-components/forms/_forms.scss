@@ -1,21 +1,171 @@
-// .form {
-// 	&__row {
-// 	}
-// 	&__column {
-// 	}
-// 	&__line {
-// 	}
-// 	&__input {
-// 	}
-// 	&__button {
-// 	}
-// 	&__error {
-// 	}
-// }
+.form {
+    
+    &__wrapper {
+        max-width: 100%;
+    }
+    &__item {
+        position: relative;
+        height: rem(48);
+        border: 1px solid $white;
+        transition: border-color 0.3s ease;
+        &:not(:last-child) {
+            margin-bottom: rem(24);
+        }
 
-// @import "button";
-// @import "input";
-// @import "checkbox";
+        &._error {
+            border-color: $red;
+
+            .content-name {
+                color: $red!important;
+            }
+        }
+
+        input {
+            @extend %geometria14-regular;
+            height: 100%;
+            width: 100%;
+            background: none;
+            color: $mainColor;
+            padding: rem(13) rem(16);
+            outline: none;
+        }
+        &_textarea {
+            height: rem(75);
+            @media(max-width: $mobile) {
+                height: rem(170);
+            }
+        }
+        textarea {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            padding: rem(13) rem(16);
+            background: transparent;
+            color: $mainColor;
+        }
+        // * FLOAT LABELS
+        label {
+            @extend %geometria14-regular;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            padding: rem(13) rem(16);
+            pointer-events: none;
+            color: $grey-input;
+        }
+        .content-name._active {
+            font-size: rem(12);
+            transform: translateY(-100%);
+            color: $lightBlack;
+            left: rem(6);
+            padding: 0 rem(10) rem(1) rem(10);
+            background: $grey;
+        }
+        .content-name {
+            transform: translateX(0%);
+            position: absolute;
+            color: $grey-input;
+            transition: color 0.3s ease, transform .3s ease;
+        }
+
+        // * FILE INPUT
+        .file__input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 10;
+            &.full ~ .icon-pin {
+                z-index: 11;
+                .cross-icon {
+                    display: block;
+                }
+                .pin-icon {
+                    display: none;
+                }
+            }
+            
+        }
+        .file__button {
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            height: rem(48);
+            padding: rem(13) rem(16);
+
+            .message-text {
+                @extend %geometria14-regular;
+                color: $mainColor;
+                height: rem(22);
+                overflow: hidden;
+                padding-right: rem(32);
+                display: block; 
+                overflow: hidden;
+            }
+        }
+        .icon-pin {
+            position: absolute;
+            top: 50%;
+            right: rem(16);
+            transform: translate(0, -50%);
+            cursor: pointer;
+            .cross-icon {
+                display: none;
+            }
+        }
+
+        // * 
+
+        // .incorrect-field._active {
+        //     opacity: 1;
+        // }
+        // .required-field._active {
+        //     opacity: 1;
+        // }
+        // .error-text {
+        //     opacity: 0;
+        //     transition: opacity .35s ease-in-out;
+        //     position: absolute;
+        //     top: 50%;
+        //     right: 0;
+        //     color: red;
+        //     font-size: 14px;
+        // }
+    }
+    &__controls {
+        display: flex;
+        margin-top: rem(32);
+        @media(max-width: $mobile) {
+            margin-top: rem(24);
+        }
+        @media(max-width: $mobileSmall) {
+            flex-direction: column-reverse;
+        }
+        button {
+            margin-right: rem(68);
+            @media(max-width: $mobileSmall) {
+                margin: rem(32) 0 0 0;
+            }
+        }
+    }
+
+    // * ERROR
+    &__error {
+        @extend %geometria12-regular;
+        color: $red;
+    }
+}
+
+@import "checkbox";
 // @import "radio";
 // @import "select";
 // @import "rating";

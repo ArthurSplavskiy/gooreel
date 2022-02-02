@@ -29,17 +29,6 @@ a:active {
 	outline: none;
 }
 
-input,
-button,
-textarea {
-	font-family: $fontFamily;
-	font-size: inherit;
-}
-button {
-	cursor: pointer;
-	color: inherit;
-	background-color: inherit;
-}
 a {
 	color: inherit;
 	cursor: pointer;
@@ -66,4 +55,37 @@ h5,
 h6 {
 	font-weight: inherit;
 	font-size: inherit;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  border: none;
+  background-color: none;
+  -webkit-text-fill-color: #000;
+  -webkit-box-shadow: none;
+  transition: background-color 50000s ease-in-out 0s;
+}
+input,
+button,
+textarea {
+	font-family: $fontFamily;
+	font-size: inherit;
+}
+button {
+	cursor: pointer;
+	color: inherit;
+	background-color: inherit;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	resize: none;
+	&:focus {
+		outline: none;
+	}
 }
