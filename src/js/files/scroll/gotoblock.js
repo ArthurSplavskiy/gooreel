@@ -9,7 +9,7 @@
 */
 
 // Подключение дополнения 
-// import "../../libs/smoothScroll.js";
+import "../../libs/smoothScroll.js";
 // Функция
 export let gotoBlock = (targetBlock, noHeader = false, speed = 500, offset = 0) => {
 	let headerItem = '';

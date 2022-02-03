@@ -75,19 +75,19 @@
     }
     .s-anchievements {
         position: relative;
-        .animate-circle {
-            bottom: 20%;
-            left: -20%;
-            @media(max-width: $tablet) {
-                left: -40%;
-            }
-            @media(max-width: $mobile) {
-                left: -70%;
-            }
-            @media(max-width: $mobileSmall) {
-                left: -100%;
-            }
-        }
+        // .animate-circle {
+        //     bottom: 20%;
+        //     left: -20%;
+        //     @media(max-width: $tablet) {
+        //         left: -40%;
+        //     }
+        //     @media(max-width: $mobile) {
+        //         left: -70%;
+        //     }
+        //     @media(max-width: $mobileSmall) {
+        //         left: -100%;
+        //     }
+        // }
         .info-grid {
             margin-bottom: rem(32);
             @media(max-width: $mobileSmall) {
@@ -411,6 +411,12 @@
             }
         }
     } 
+    .intro-screen .animate-circle {
+        top: -220%;
+        @media(max-width: $mobileSmall) {
+            top: -350%;
+        }
+    }
 }
 
 // * NEWS PAGE 

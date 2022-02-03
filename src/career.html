@@ -385,10 +385,10 @@
 								</div>
 								<div class="info-block__text">
 									<p>there are currently no open vacancies in our company. But you can leave a request with a resume and we will contact you. See you!</p>
-									@@include('html/_link-btn.htm', {
-										"text": "Apply",
-										"link": "#popup"
-									})
+									<a href="#" class="link-btn" data-popup-link="[data-popup='feedbackPopup']">
+										<span>Apply</span>
+										<img data-src="img/interface/link-btn.svg" inline-svg alt="Gooreel">
+									</a>
 								</div>
 							</div>
 						</div>
@@ -405,7 +405,7 @@
 				  
 			</main>
 			@@include('html/_footer.htm',{})
-			<!-- @@include('html/_popup.htm',{}) -->
+			@@include('html/_popup.htm',{})
 			@@include('html/_js.htm',{})
 		</div>
 	</body>

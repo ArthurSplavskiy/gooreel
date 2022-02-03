@@ -118,8 +118,10 @@
                 &:before {
                     background: $white;
                 }
-                svg circle {
-                    fill: $white;
+                svg {
+                    circle {
+                        fill: $white;
+                    }
                 }
             }
         }
@@ -177,6 +179,7 @@ a.more-info {
     svg {
         transition: transform $tf2;
         margin: auto;
+        max-width: rem(16);
     }
 
     &:before {
@@ -231,46 +234,86 @@ a.more-info {
     }
 }
 
+// * empty squares
+.square_empty {
+    &.empty-bottom {
+        transform-origin: 0 0;
+        transform: scaleY(1.01);
+        @media(max-width: $tablet) {
+            transform: scale(1);
+        }
+    }
+    &.empty-bottom-right-left {
+        transform-origin: 0 0;
+        transform: scale(1.01, 1.01) translateX(-1px);
+        @media(max-width: $tablet) {
+            transform: scale(1);
+        }
+    }
+    &.empty-top-right {
+        transform-origin: 0 100%;
+        transform: scale(1.01, 1.01);
+        @media(max-width: $tablet) {
+            transform: scale(1);
+        }
+    }
+    &.empty-left {
+        transform-origin: 125% 125%;
+        transform: scaleX(1.01);
+        @media(max-width: $tablet) {
+            transform: scale(1);
+        }
+    }
+}
 // * team grid
 .team-grid {
     display: grid;
+    background: $green;
+    border: 1px solid $green;
+    gap: 1px;
 
     @media(max-width: $pc) {
-        grid-template-columns: repeat(4, calc(25vw - 8px));
-        grid-template-rows: repeat(4, calc(25vw - 8px));
+        grid-template-columns: repeat(4, calc(25vw - 9.3px));
+        grid-template-rows: repeat(4, calc(25vw - 9.3px));
+        grid-auto-rows: calc(25vw - 9.3px);
     }
     @media(max-width: $mobile) {
-        grid-template-columns: repeat(2, calc(50vw - 16px));
-        grid-template-rows: repeat(2, calc(50vw - 16px));
-        grid-auto-rows: calc(50vw - 16px);
+        grid-template-columns: repeat(2, calc(50vw - 17.7px));
+        grid-template-rows: repeat(2, calc(50vw - 17.7px));
+        grid-auto-rows: calc(50vw - 17.7px);
     }
     @media(max-width: $mobileSmall) {
-        grid-template-columns: calc(100vw - 32px);
-        grid-template-rows: repeat(2, calc(100vw - 32px));
-        grid-auto-rows: calc(100vw - 32px);
+        grid-template-columns: calc(100vw - 34.5px);
+        grid-template-rows: repeat(2, calc(100vw - 34.5px));
+        grid-auto-rows: calc(100vw - 34.5px);
     }
     @media(min-width: $pc) {
-        grid-template-columns: repeat(4, calc($maxWidthContainer / 4)+px);
-        grid-template-rows: repeat(4, ($maxWidthContainer / 4)+px);
+        grid-template-columns: repeat(4, calc($maxWidthContainer / 4.017)+px);
+        grid-template-rows: repeat(4, ($maxWidthContainer / 4.017)+px);
+        grid-auto-rows: rem(278);
     }
     @media(min-width: $fullHd) {
-        grid-template-columns: repeat(4, calc($hdWidth / 4)+px);
-        grid-template-rows: repeat(4, ($hdWidth / 4)+px);
+        grid-template-columns: repeat(4, calc($hdWidth / 4.012)+px);
+        grid-template-rows: repeat(4, ($hdWidth / 4.012)+px);
+        grid-auto-rows: rem(400);
     }
     
     .square {
-        border: 0.5px solid $green;
+        //border: 0.5px solid $green;
         overflow: hidden;
+        background: $grey;
         
-        @media(any-hover: hover) {
-            &:hover {
-                img {
-                    filter: grayscale(1);
-                }
-                .square__link-icon svg {
-                    transform: translate(2px, -2px);
-                }
+        &:hover {
+            img {
+                filter: grayscale(1);
             }
+            .square__link-icon svg {
+                transform: translate(2px, -2px);
+            }
+        }
+
+        img {
+            transition: filter 0.3s ease-in-out;
         }
 
         @media(max-width: $mobileSmall) {
@@ -353,41 +396,46 @@ a.more-info {
 // * info-grid
 .info-grid {
     display: grid;
+    background: $green;
+    border: 1px solid $green;
+    gap: 1px;
 
     @media(max-width: $pc) {
-        grid-template-columns: repeat(3, calc(33.3333vw - 8px));
-        grid-template-rows: repeat(2, calc(33.3333vw - 8px));
-        grid-auto-rows: calc(33.3333vw - 8px);
+        grid-template-columns: repeat(3, calc(33.3333vw - 12px));
+        grid-template-rows: repeat(2, calc(33.3333vw - 10px));
+        grid-auto-rows: calc(33.3333vw - 9.3px);
     }
     @media(max-width: $mobile) {
-        grid-template-columns: repeat(2, calc(50vw - 16px));
-        grid-template-rows: repeat(2, calc(50vw - 16px));
-        grid-auto-rows: calc(50vw - 16px);
+        grid-template-columns: repeat(2, calc(50vw - 17.7px));
+        grid-template-rows: repeat(2, calc(50vw - 17.7px));
+        grid-auto-rows: calc(50vw - 17.7px);
     }
     @media(max-width: $mobileSmall) {
-        grid-template-columns: calc(100vw - 32px);
-        grid-template-rows: repeat(2, calc(100vw - 32px));
-        grid-auto-rows: calc(100vw - 32px);
+        grid-template-columns: calc(100vw - 34.5px);
+        grid-template-rows: repeat(2, calc(100vw - 34.5px));
+        grid-auto-rows: calc(100vw - 34.5px);
     }
     @media(min-width: $pc) {
-        grid-template-columns: repeat(3, calc($maxWidthContainer / 3)+px);
+        grid-template-columns: repeat(3, calc($maxWidthContainer / 3.01)+px);
         grid-template-rows: repeat(2, ($maxWidthContainer / 3)+px);
         grid-auto-rows: 370.6666666667px;
     }
     @media(min-width: $fullHd) {
-        grid-template-columns: repeat(3, calc($hdWidth / 3)+px);
+        grid-template-columns: repeat(3, calc($hdWidth / 3.007)+px);
         grid-template-rows: repeat(2, ($hdWidth / 3)+px);
         grid-auto-rows: 533.3333333333px;
     }
     .square {
-        border: 0.5px solid $green;
         overflow: hidden;
+        background: $grey;
 
         &_empty {
             border: none;
 
-            @media(max-width: $mobile) {
-                display: none;
+            &:not(.square_svg) {
+                @media(max-width: $mobile) {
+                    display: none;
+                }
             }
         }
 
@@ -406,6 +454,12 @@ a.more-info {
                 top: 0;
                 left: 0;
                 object-fit: cover;
+                @media(min-width: $pc) {
+                    top: -2px;
+                }
+                @media(min-width: $fullHd) {
+                    top: -3.9px;
+                }
             }
             @media(min-width: $mobile) {
                 border: none;
@@ -473,38 +527,41 @@ a.more-info {
 // * partners-grid
 .partners-grid {
     display: grid;
+    background: $green;
+    border: 1px solid $green;
+    gap: 1px;
     
     @media(max-width: $pc) {
-        grid-template-columns: repeat(4, calc(25vw - 8px));
-        grid-template-rows: repeat(2, calc(25vw - 8px));
-        grid-auto-rows: calc(25vw - 8px);
+        grid-template-columns: repeat(4, calc(25vw - 9.3px));
+        grid-template-rows: repeat(2, calc(25vw - 9.3px));
+        grid-auto-rows: calc(25vw - 9.3px);
     }
     @media(max-width: $mobile) {
-        grid-template-columns: repeat(2, calc(50vw - 16px));
-        grid-template-rows: repeat(2, calc(50vw - 16px));
-        grid-auto-rows: calc(50vw - 16px);
+        grid-template-columns: repeat(2, calc(50vw - 17.7px));
+        grid-template-rows: repeat(2, calc(50vw - 17.7px));
+        grid-auto-rows: calc(50vw - 17.7px);
     }
     @media(min-width: $pc) {
-        grid-template-columns: repeat(4, calc($maxWidthContainer / 4)+px);
-        grid-template-rows: repeat(2, ($maxWidthContainer / 4)+px);
+        grid-template-columns: repeat(4, calc($maxWidthContainer / 4.017)+px);
+        grid-template-rows: repeat(2, ($maxWidthContainer / 4.017)+px);
         grid-auto-rows: rem(278);
     }
     @media(min-width: $fullHd) {
-        grid-template-columns: repeat(4, calc($hdWidth / 4)+px);
-        grid-template-rows: repeat(2, ($hdWidth / 4)+px);
+        grid-template-columns: repeat(4, calc($hdWidth / 4.012)+px);
+        grid-template-rows: repeat(2, ($hdWidth / 4.012)+px);
         grid-auto-rows: rem(400);
     }
 
     .square {
-        border: 0.5px solid $green;
         overflow: hidden;
+        background: $grey;
 
         &_empty {
             border: none;
 
-            @media(max-width: $mobileSmall) {
-                display: none;
-            }
+            // @media(max-width: $mobileSmall) {
+            //     display: none;
+            // }
         }
         &_link {
             @extend %flex-center;
@@ -555,6 +612,9 @@ a.more-info {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(rem(288), 1fr));
     gap: rem(40);
+    @media(min-width: $fullHd) {
+        grid-template-columns: repeat(auto-fill, minmax(rem(320), 1fr));
+    }
 }
 
 // * circle card-link
@@ -622,7 +682,7 @@ a.more-info {
             display: block;
             position: absolute;
             top: 100%;
-            height: 0.5px;
+            height: 1px;
             width: 100%;
             background: $lightBlack;
             transform-origin: 100% 100%;
@@ -746,7 +806,7 @@ a.more-info {
                 display: block;
                 position: absolute;
                 top: 100%;
-                height: 0.5px;
+                height: 1px;
                 width: 100%;
                 background: $lightBlack;
                 transform-origin: 100% 100%;
@@ -891,7 +951,7 @@ a.more-info {
                 display: block;
                 position: absolute;
                 top: 100%;
-                height: 0.5px;
+                height: 1px;
                 width: 100%;
                 background: $lightBlack;
                 transform-origin: 100% 100%;
@@ -1071,7 +1131,7 @@ a.more-info {
                         position: absolute;
                         top: 100%;
                         left: 0;
-                        height: 0.5px;
+                        height: 1px;
                         width: 100%;
                         background: $lightBlack;
                         transform-origin: 100% 100%;
@@ -1120,7 +1180,7 @@ a.more-info {
                     position: absolute;
                     top: 100%;
                     left: 0;
-                    height: 0.5px;
+                    height: 1px;
                     width: 100%;
                     background: $lightBlack;
                     transform-origin: 100% 100%;
@@ -1272,7 +1332,7 @@ a.more-info {
                 display: block;
                 position: absolute;
                 top: 100%;
-                height: 0.5px;
+                height: 1px;
                 width: 100%;
                 background: $lightBlack;
                 transform-origin: 100% 100%;

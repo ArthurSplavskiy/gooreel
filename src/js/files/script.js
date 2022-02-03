@@ -1,12 +1,12 @@
 import  MovingTiters from './classes/MovingTiters.js'
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin.js'
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js'
 import { SplitText } from "gsap/SplitText.js"
 import ScrollObserver from './classes/ScrollObserver.js'
 import { bodyLockToggle, bodyLockStatus, _slideToggle } from "./utils/functions.js";
+import { gotoBlock } from "./scroll/gotoblock.js";
 
-gsap.registerPlugin(DrawSVGPlugin, ScrollToPlugin, SplitText)
+gsap.registerPlugin(DrawSVGPlugin, SplitText)
 
 class App {
     constructor () {
@@ -36,10 +36,17 @@ class App {
     }
 
     domCalculate () {
+        // * PAGE TITLE 
         const pageTitle = document.querySelector('.intro-screen__title')
         const pageIntroContent = document.querySelector('.intro-screen__content_grid')
         if(pageTitle && pageIntroContent) {
             pageIntroContent.style.gridTemplateRows = `${pageTitle.offsetHeight}px`
+        }
+        // * MENU OVERFLOW LINE HEIGHT
+        const menuLines = document.querySelector('.page-menu__lines')
+        const pageMenu = document.querySelector('.page-menu')
+        if(menuLines && pageMenu) {
+            menuLines.style.height = pageMenu.scrollHeight + 'px'
         }
     }
 
@@ -65,31 +72,31 @@ class App {
         }
         if(this.introGridSVG && this.introTimeline) {
             const svgPath = this.introGridSVG.querySelectorAll('path, line')
-            this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {duration: 2, drawSVG:"100%", stagger: 0.1, delay: 1})
+            this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {duration: 1.5, drawSVG:"100%", stagger: 0.1, delay: 1})
         }
-        if(this.splitMainTitle.isSplit && this.splitMainTitle.lines && this.introTimeline) {
-            this.introTimeline.fromTo(this.splitMainTitle.lines, 
-            {
-                yPercent: 100,
-                autoAlpha: 0
-            },
-            {
-                yPercent: 0,
-                autoAlpha: 1,
-                stagger: 0.2
-            }, '1')
-        }
-        if(this.introQuote && this.introTimeline) {
-            this.introTimeline.fromTo(this.introQuote, {
-                autoAlpha: 0,
-                x: -20
-            }, {
-                autoAlpha: 1,
-                x: 0,
-                duration: 1.5,
-                delay: 0.3
-            }, '1')
-        }
+        // if(this.splitMainTitle.isSplit && this.splitMainTitle.lines && this.introTimeline) {
+        //     this.introTimeline.fromTo(this.splitMainTitle.lines, 
+        //     {
+        //         yPercent: 100,
+        //         autoAlpha: 0
+        //     },
+        //     {
+        //         yPercent: 0,
+        //         autoAlpha: 1,
+        //         stagger: 0.2
+        //     }, '1')
+        // }
+        // if(this.introQuote && this.introTimeline) {
+        //     this.introTimeline.fromTo(this.introQuote, {
+        //         autoAlpha: 0,
+        //         //x: -20
+        //     }, {
+        //         autoAlpha: 1,
+        //         //x: 0,
+        //         duration: 1.5,
+        //         delay: 0.3
+        //     }, '1.5')
+        // }
         if(this.introRevealImages && this.introTimeline) {
             gsap.utils.toArray(this.introRevealImages).forEach(image => {
                 this.introTimeline.to(image, {
@@ -177,13 +184,13 @@ class App {
             }
         }
         // * anchor transition
-        if (targetElement.closest('[anchor-link]')) {
-            this.anchorTimeline = gsap.timeline()
-			if(targetElement.hasAttribute("href")) {
-                this.anchorTimeline.to(window, {duration: 1.2, scrollTo: targetElement.getAttribute("href")})
-            }
-			e.preventDefault();
-		}
+        // if (targetElement.closest('[anchor-link]')) {
+        //     this.anchorTimeline = gsap.timeline()
+		// 	if(targetElement.hasAttribute("href")) {
+        //         this.anchorTimeline.to(window, {duration: 1.2, scrollTo: targetElement.getAttribute("href")})
+        //     }
+		// 	e.preventDefault();
+		// }
         // * menu open
         if (targetElement.closest('.icon-menu')) {
             if (bodyLockStatus) {
@@ -200,11 +207,10 @@ class App {
             }
         }
         // * show more
-        if (targetElement.closest('.more-info')) {
+        if (targetElement.closest('[data-view-more]')) {
             e.preventDefault()
     
             const $moreItemsContainer = targetElement.closest('[data-view-more]')
-            const $squareViewAll = $moreItemsContainer ? $moreItemsContainer.querySelector('.square-view-all') : null
             $moreItemsContainer ? $moreItemsContainer.classList.toggle('show-more') : null
             const $showMoreLink = $moreItemsContainer ? $moreItemsContainer.querySelector('[data-show-more]') : null
 
@@ -219,6 +225,8 @@ class App {
                     span.innerText = secondText
                     if ( !$moreItemsContainer.classList.contains('show-more') ) {
                         span.innerText = firstText
+
+                        gotoBlock(`.${$moreItemsContainer.parentElement.classList[0]}`)
                     }
                 }
             }
@@ -311,7 +319,6 @@ class App {
     }
     removeEventListeners () {
     }
-
     onResize () {
         this.domCalculate()
         // this.splitMainTitle.revert()

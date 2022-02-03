@@ -583,7 +583,7 @@ export function setPhoneMask() {
 				//'+375(99)999-99-99'
 				phoneInput.classList.add('_mask');
 				Inputmask("+380 999 999 999", {
-					//"placeholder": '',
+					showMaskOnHover: false,
 					clearIncomplete: true,
 					clearMaskOnLostFocus: true,
 					onincomplete: function () {

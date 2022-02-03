@@ -4,9 +4,10 @@
 		"title":"Sitemap - Gooreel"
 	})
 	<body>
+		@@include('html/_preloader.htm',{})
 		<div class="rootpage">
 			<h1>Front-end «Gooreel»</h1>
-			<h2>Готові сторінки:</h2>
+			<h6>Готові сторінки:</h6>
 			<ol class="rootpage__list">
 				<li><a target="_blank" href="index.html">Головна</a></li>
 				<li><a target="_blank" href="about.html">About</a></li>
@@ -22,7 +23,7 @@
 				<li><a target="_blank" href="contacts.html">Contacts</a></li>
 				<li><a target="_blank" href="404.html">404</a></li>
 			</ol>
-			<h2>Попапы:</h2>
+			<h6>Попапи:</h6>
 			<ol class="rootpage__list">
 				<li><a data-popup-link="[data-popup='vacancyPopup']" href="">Vacancy</a></li>
 				<li><a data-popup-link="[data-popup='feedbackPopup']" href="">Feedback</a></li>
@@ -58,7 +59,7 @@
 		}
 		a {
 			text-decoration: underline;
-			color: #ebe691
+			color: #fff;
 		}
 		a:visited {
 			text-decoration: underline;
@@ -90,7 +91,7 @@
 			}
 		}
 		h1 {
-			color: #ebe691;
+			color: #fff;
 			font-size: 2.5rem;
 			margin: 0px 0px 1.25rem 0px;
 		}
@@ -100,13 +101,13 @@
 				margin: 0px 0px 1.25rem 0px;
 			}
 		}
-		h2 {
-			color: #ebe691;
+		h6 {
+			color: #fff;
 			font-size: 1.25rem;
 			margin: 0px 0px 1rem 0px;
 		}
 		@media (max-width: 767px) {
-			 h2 {
+			 h6 {
 				font-size: 1.125rem;
 				margin: 0px 0px 1rem 0px;
 			}
@@ -140,7 +141,7 @@
 			
 		}
 		.rootpage__contacts a{
-			color: #ebe691;
+			color: #fff;
 		}
 		.rootpage__tnx{
 			background: #c22d63;

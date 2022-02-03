@@ -26,7 +26,7 @@ html.menu-open .header-shadow {
 
 	.header-shadow {
 		position: absolute;
-		top: 0;
+		top: rem(-25);
 		left: 0;
 		width: 100%;
 		height: 1px;
@@ -100,7 +100,7 @@ html.menu-open .header-shadow {
                 display: block;
                 position: absolute;
                 top: 100%;
-                height: 0.5px;
+                height: 1px;
                 width: 100%;
                 background: $mainColor;
                 transform-origin: 100% 100%;
@@ -197,7 +197,7 @@ html.menu-open .header-shadow {
                 display: block;
                 position: absolute;
                 top: 100%;
-                height: 0.5px;
+                height: 1px;
                 width: 100%;
                 background: $white;
                 transform-origin: 100% 100%;

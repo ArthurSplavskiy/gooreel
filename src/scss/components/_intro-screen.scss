@@ -70,7 +70,7 @@
     }
 
     .animate-circle {
-        top: -5%;
+        top: -100%;
         right: -10%;
         width: rem(588);
         height: rem(588);
@@ -126,6 +126,10 @@
             @media(max-width: em(900)) {
                 margin-bottom: rem(64);
             }
+        }
+
+        svg {
+            will-change: transform;
         }
     }
 
