@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import FileIncludeWebpackPlugin from 'file-include-webpack-plugin-replace';
 import CopyPlugin from "copy-webpack-plugin";
-//import TerserPlugin from "terser-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 import * as path from 'path';
 
@@ -17,12 +17,12 @@ const config = {
 	mode: "production",
 	devtool: 'source-map',
 	optimization: {
-		minimize: false, //true
-		//minimizer: [new TerserPlugin()],
+		minimize: true, //true
+		minimizer: [new TerserPlugin()],
 	},
 	output: {
 		path: `${paths.build}`,
-		filename: 'main.js', // filename: 'app.min.js',
+		filename: 'main.min.js', // filename: 'app.min.js',
 		publicPath: '/',
 	},
 	module: {

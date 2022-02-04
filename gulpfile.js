@@ -28,7 +28,6 @@ const path = {
 		html: `${projectName}/`,
 		tpl: `${projectName}/tpl/`,
 		js: `${projectName}/js/`,
-		libs: `${projectName}/libs/`,
 		css: `${projectName}/css/`,
 		scss: `${projectName}/css/`,
 		images: `${projectName}/img/`,
@@ -39,7 +38,6 @@ const path = {
 		html: [`${srcFolder}/**/*.html`, `!${srcFolder}/_*.html`],
 		tpl: [`${srcFolder}/html/*`],
 		js: [`${srcFolder}/js/app.js`],
-		libs: [`${srcFolder}/libs/*`],
 		scss: [`${srcFolder}/scss/**/*`],
 		css: `${srcFolder}/scss/style.scss`,
 		images: [`${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,webm,mp4}`, "!**/favicon.*"],
@@ -111,11 +109,6 @@ function webpackBuild() {
 			config: webPackConfig
 		}))
 		.pipe(dest(path.build.js))
-}
-
-function libs() {
-	return src(path.src.libs, {})
-		.pipe(dest(path.build.libs))
 }
 
 function others() {
@@ -234,9 +227,9 @@ function htmlNoWebpBuild() {
 }
 
 let fontsBuild = gulp.series(fontsConverter, fontStyle);
-let dev = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, libs));
-let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild, libs, others, copyScss, copyHTMLTemplates), webpackBuild, cssBuild, htmlBuild);
-let devbuild = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesNoWebpBuild, libs, others, copyScss, copyHTMLTemplates), webpackBuild, cssNoWebpBuild, htmlNoWebpBuild);
+let dev = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild));
+let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild, others, copyScss, copyHTMLTemplates), webpackBuild, cssBuild, htmlBuild);
+let devbuild = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesNoWebpBuild, others, copyScss, copyHTMLTemplates), webpackBuild, cssNoWebpBuild, htmlNoWebpBuild);
 
 gulp.task('fonts', fontsBuild);
 gulp.task('default', dev);
