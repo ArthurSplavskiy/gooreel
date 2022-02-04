@@ -85,10 +85,8 @@
             transition: clip-path 275ms ease;
             @media (any-hover: hover){
                 &:hover{
-                    //color: transparent;
                     &:hover::before {
                         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-                        
                     }
                 }
             }

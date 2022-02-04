@@ -7,4 +7,4 @@ inlineSVG.init({
 	console.log('All SVGs inlined');
 });
 
-{/* <img class="svg" data-src="viber.svg" alt=""></img> */}
+{/* <img data-src="viber.svg" inline-svg alt=""></img> */}

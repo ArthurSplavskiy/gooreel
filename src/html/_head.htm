@@ -23,7 +23,7 @@
     <meta name="application-name" content="Gooreel">
     <meta name="theme-color" content="#000000">
 	<meta name="msapplication-config" content="others/browserconfig.xml">
-	<link rel="manifest" crossorigin="use-credentials" href="others/manifest.json">
+	<!-- <link rel="manifest" crossorigin="use-credentials" href="others/manifest.json"> -->
     <style>
 		.preloader {
 			position: fixed;
@@ -44,6 +44,7 @@
             transform: scale(1.1, 1);
             transition: transform 1.25s cubic-bezier(.87,-0.14,0,1.04);
             background: #5FC194;
+            will-change: transform;
 		}
         .preloader__wrapper span:nth-child(1) {
             transition-delay: 0.1s;

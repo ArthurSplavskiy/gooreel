@@ -1,75 +1,116 @@
-img[data-reveal] {
+img[data-scale] {
     transform: scale(0);
     transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-    // clip-path: inset(0% 100% 0% 0%);
     opacity: 0;
-    //will-change: transform, clip-path;
     
-    &._reveal {
+    &._scale {
         transform: scale(1);
-        //clip-path: inset(0% 0% 0% 0%);
         opacity: 1;
     }
 }
 
-[data-scroll-reveal] {
+.info-block__image-ibg[data-is-view], .game-promo__image-ibg[data-is-view] {
     img {
-        transform: scale(0);
-        transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1)!important;
-        //clip-path: inset(0% 100% 0% 0%);
+        transform: scale(1.1)!important;
+        transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1) 1s!important;
+        clip-path: inset(0% 100% 0% 0%);
         opacity: 0;
     }
+    
     &.is-view {
         img {
             transform: scale(1);
-            //clip-path: inset(0% 0% 0% 0%);
+            clip-path: inset(0% 0% 0% 0%);
             opacity: 1;
         }
     }
 }
 
-[data-scroll-reveal="0.25"] {
+.article-grid__image[data-is-view] {
+    img {
+        transform: scale(1.1);
+        transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1)!important;
+        clip-path: inset(0% 100% 0% 0%);
+        opacity: 0;
+    }
+    &.is-view {
+        img {
+            transform: scale(1);
+            clip-path: inset(0% 0% 0% 0%);
+            opacity: 1;
+        }
+    }
+}
+
+[data-scroll-scale] {
+    img {
+        transform: scale(0);
+        transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1)!important;
+        opacity: 0;
+    }
+    &.is-view {
+        img {
+            transform: scale(1.01);
+            opacity: 1;
+        }
+    }
+}
+
+[data-scroll-scale="0.25"] {
     img {
         transition-delay: 0.25s;
     }
 }
-[data-scroll-reveal="0.35"] {
+[data-scroll-scale="0.35"] {
     img {
         transition-delay: 0.35s;
     }
 }
-[data-scroll-reveal="0.45"] {
+[data-scroll-scale="0.45"] {
     img {
         transition-delay: 0.45s;
     }
 }
-[data-scroll-reveal="0.55"] {
+[data-scroll-scale="0.55"] {
     img {
         transition-delay: 0.55s;
     }
 }
-[data-scroll-reveal="0.65"] {
+[data-scroll-scale="0.65"] {
     img {
         transition-delay: 0.65s;
     }
 }
-[data-scroll-reveal="0.75"] {
+[data-scroll-scale="0.75"] {
     img {
         transition-delay: 0.75s;
     }
 }
-[data-scroll-reveal="0.85"] {
+[data-scroll-scale="0.85"] {
     img {
         transition-delay: 0.85s;
     }
 }
-[data-scroll-reveal="0.95"] {
+[data-scroll-scale="0.95"] {
     img {
         transition-delay: 0.95s;
     }
 }
-[data-scroll-reveal="1"] {
+[data-scroll-scale="1"] {
     img {
         transition-delay: 1s;
+    }
+}
+
+
+
+.square_circle-link[data-is-view], .square-view-all[data-is-view] {
+    & > div {
+        transition: border-radius 1s ease;
+    }
+    &.is-view {
+        & > div {
+            border-radius: 50%;
+        }
     }
 }

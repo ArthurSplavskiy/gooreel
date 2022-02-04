@@ -3,7 +3,7 @@ export default class ScrollObserver {
         this.element = element
         this.animationIn = animationIn
         this.animationOut = animationOut
-        this.options = options
+        this.options = options // 1.0 - (100% element scroll) 0.9 - 90%(100% element scroll)
 
         this.createObserver()
     }

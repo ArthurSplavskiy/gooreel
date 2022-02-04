@@ -20,6 +20,10 @@
         }
     }
     .intro-screen__content {
+        .grid {
+            transform-origin: top;
+            transform: scaleY(1.005);
+        }
         @media(max-width: em(900)) {
             position: relative;
             flex-direction: column-reverse;
@@ -304,11 +308,19 @@
         border: 1px solid $white;
         display: flex;
         overflow: hidden;
+        opacity: 0.2;
+        transform: translate3d(0, 80px, 0);
+        transition: all 1s ease;
         &:not(:last-child) {
             margin-bottom: rem(24);
         }
         @media(max-width: $mobile) {
             flex-direction: column;
+        }
+
+        &.is-view {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
         }
 
         &:nth-child(odd) {
@@ -377,7 +389,7 @@
         &.show-more {
             .partners-grid {
                 & > * {
-                    display: flex;
+                    display: flex!important;
                 }
             }
         }
@@ -395,6 +407,24 @@
                     display: none!important;
                 }
             } 
+            @media(max-width: $mobile) {
+                .square_text:not(:nth-child(3)) {
+                    display: none;
+                }
+                .square_text {
+                    text-align: center;
+                    padding: rem(10);
+                    order: -1;
+                    grid-row: 1 / 3;
+                }
+                & > *:nth-child(n + 8) {
+                    display: none;
+                }
+                .square_svg, .square_empty {
+                    display: none!important;
+                }
+            }
+            
         }
         &__container {
             display: flex;
@@ -432,6 +462,32 @@
     }
     .search-form {
         margin-left: rem(40);
+    }
+}
+
+// * CONTACTS PAGE 
+.contacts-page {
+    position: relative;
+
+    .map {
+        position: relative;
+        margin-top: rem(80);
+        min-width: $minWidth + 32 + px;
+        @media(max-width: $mobileSmall) {
+            margin-top: rem(32);
+            width: calc(100vw + 32px);
+            margin-left: -16px;
+        }
+        &__image-ibg {
+            padding-bottom: 42.27%;
+            @media(max-width: $mobileSmall) {
+                padding-bottom: 73.27%;
+            }
+        }
+        .animate-circle {
+            bottom: -50%;
+            left: 0;
+        }
     }
 }
 

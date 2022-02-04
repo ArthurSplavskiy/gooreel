@@ -2,6 +2,43 @@
 .intro-screen {
     position: relative;
 
+    &.is-view {
+        h1 > div > div {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+        .quote-text {
+            opacity: 1;
+            transition: opacity $tf2;
+        }
+    }
+
+    h1 {
+        & > div {
+            div {
+                transform: translate3d(0, 100%, 0);
+                transition: transform $tf2, opacity $tf2;
+                opacity: 0;
+            }
+            &:nth-child(1) div {
+                transition-delay: 0.25s;
+            }
+            &:nth-child(2) div {
+                transition-delay: 0.35s;
+            }
+            &:nth-child(3) div {
+                transition-delay: 0.45s;
+            }
+            &:nth-child(4) div {
+                transition-delay: 0.55s;
+            }
+        }
+    }
+
+    .quote-text {
+        opacity: 0;
+    }
+
     &__paggination {
         min-height: rem(24);
     }

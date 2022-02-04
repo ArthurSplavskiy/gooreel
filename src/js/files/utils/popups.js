@@ -1,5 +1,5 @@
 // Подключение дополнения
-import "../../../libs/hystmodal.min.js";
+import "../../libs/hystmodal.min.js";
 // Подключение стилей
 // import "../../../scss/libs/_hystmodal.scss";
 

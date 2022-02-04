@@ -14,9 +14,12 @@ class App {
         this.footerGridSVG = document.querySelector('.footer__anchor-grid svg')
         this.footerArrowSVG = document.querySelector('.footer__anchor-link svg')
         this.sectionDescription = document.querySelectorAll('.section-descr')
-        this.quoteDecorations = document.querySelectorAll('.quote-text__decoration span')
-        this.revealImages = document.querySelectorAll('[data-scroll-reveal]')
+        this.scaleImages = document.querySelectorAll('[data-scroll-scale]')
         this.svgDrawOnScroll = document.querySelectorAll('[data-scroll-draw]')
+        this.scrollIsViewElements = document.querySelectorAll('[data-is-view]')
+
+        this.partnersGridInitHeight = document.querySelector('[data-view-more] .partners-grid') ? document.querySelector('[data-view-more] .partners-grid').clientHeight : null
+        
         this.init()
     }
 
@@ -63,66 +66,56 @@ class App {
 
     introScreenAnimation () {
         this.introScreen = document.querySelector('.intro-screen')
+        const isViewDelay = 2000
+        const animationH2LinesIn = (el) => {
+            gsap.to(el, {
+                y: '0'
+            })
+        }
 
         if(this.introScreen) {
             this.introGridSVG = this.introScreen.querySelector('svg.grid')
-            this.introRevealImages = this.introScreen.querySelectorAll('img[data-reveal]')
+            this.introScaleImages = this.introScreen.querySelectorAll('img[data-scale]')
             this.introQuote = this.introScreen.querySelector('.quote-text')
+            this.preloaderLines = document.querySelectorAll('.preloader__wrapper span')
             this.introTimeline = gsap.timeline()
         }
+
+        setTimeout(() => this.introScreen.classList.add('is-view'), isViewDelay)
+
         if(this.introGridSVG && this.introTimeline) {
             const svgPath = this.introGridSVG.querySelectorAll('path, line')
-            this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {duration: 1.5, drawSVG:"100%", stagger: 0.1, delay: 1})
+            this.introTimeline.fromTo(svgPath, {drawSVG:'0%'}, {
+                duration: 1.5, 
+                drawSVG:"100%", 
+                stagger: 0.1, 
+                delay: 1,
+            })
+        } else {
+            new ScrollObserver(this.splitSecondTitles.lines, animationH2LinesIn)
         }
-        // if(this.splitMainTitle.isSplit && this.splitMainTitle.lines && this.introTimeline) {
-        //     this.introTimeline.fromTo(this.splitMainTitle.lines, 
-        //     {
-        //         yPercent: 100,
-        //         autoAlpha: 0
-        //     },
-        //     {
-        //         yPercent: 0,
-        //         autoAlpha: 1,
-        //         stagger: 0.2
-        //     }, '1')
-        // }
-        // if(this.introQuote && this.introTimeline) {
-        //     this.introTimeline.fromTo(this.introQuote, {
-        //         autoAlpha: 0,
-        //         //x: -20
-        //     }, {
-        //         autoAlpha: 1,
-        //         //x: 0,
-        //         duration: 1.5,
-        //         delay: 0.3
-        //     }, '1.5')
-        // }
-        if(this.introRevealImages && this.introTimeline) {
-            gsap.utils.toArray(this.introRevealImages).forEach(image => {
+        if(this.introScaleImages && this.introTimeline) {
+            gsap.utils.toArray(this.introScaleImages).forEach(image => {
                 this.introTimeline.to(image, {
-                    onEnter: () => image.classList.add('_reveal')
-                }, '2') 
+                    onEnter: () => image.classList.add('_scale'),
+                    delay: 1
+                }, '1') 
             })
         }
         if(this.header && this.introTimeline) {
             this.introTimeline.fromTo(this.header, {yPercent: -100}, {yPercent: 0}, '-=2.5')
             this.introTimeline.call(_ => {
                 this.header.style = ''
+                this.preloaderLines.forEach(line => line.style.willChange = 'auto')
             })
         }
         // * h2 Animation
         if(this.splitSecondTitles.lines.length > 0 && this.introTimeline) {
             this.introTimeline.call(_ => {
-                const animationIn = (el) => {
-                    gsap.to(el, {
-                        y: '0'
-                    })
-                }
-                new ScrollObserver(this.splitSecondTitles.lines, animationIn)
+                new ScrollObserver(this.splitSecondTitles.lines, animationH2LinesIn)
             })
         }
     }
-
     menuAnimation () {
         this.iconMenu = document.querySelector('.icon-menu')
 
@@ -169,7 +162,6 @@ class App {
 
         this.menuTimeline.pause()
     }
-
     documentActions (e) {
         const targetElement = e.target
  
@@ -183,14 +175,10 @@ class App {
                 _slideToggle(spollerBody)
             }
         }
-        // * anchor transition
-        // if (targetElement.closest('[anchor-link]')) {
-        //     this.anchorTimeline = gsap.timeline()
-		// 	if(targetElement.hasAttribute("href")) {
-        //         this.anchorTimeline.to(window, {duration: 1.2, scrollTo: targetElement.getAttribute("href")})
-        //     }
-		// 	e.preventDefault();
-		// }
+        if (targetElement.closest('[anchor-link]')) {
+            gotoBlock(targetElement.getAttribute("href"))
+			e.preventDefault();
+		}
         // * menu open
         if (targetElement.closest('.icon-menu')) {
             if (bodyLockStatus) {
@@ -239,6 +227,8 @@ class App {
                     span.innerText = secondText
                     if ( !$moreItemsContainer.classList.contains('show-more') ) {
                         span.innerText = firstText
+
+                        gotoBlock(`.${$moreItemsContainer.parentElement.classList[0]}`, false, 500, - this.partnersGridInitHeight)
                     }
                 }
             }
@@ -273,13 +263,9 @@ class App {
         if(this.sectionDescription.length > 0) {
             new ScrollObserver(this.sectionDescription, this.isView)
         }
-        // * Quote Description line
-        if(this.quoteDecorations.length > 0) {
-            new ScrollObserver(this.quoteDecorations, this.isView)
-        }
-        // * Reveal images
-        if(this.revealImages.length > 0) {
-            new ScrollObserver(this.revealImages, this.isView)
+        // * Scale images
+        if(this.scaleImages.length > 0) {
+            new ScrollObserver(this.scaleImages, this.isView)
         }
         // * Draw svg on scroll
         if(this.svgDrawOnScroll.length > 0) {
@@ -291,6 +277,16 @@ class App {
                 gsap.to([...el.querySelectorAll('path'), ...el.querySelectorAll('rect'), ...el.querySelectorAll('line')], {duration: 4, drawSVG:"100%", stagger: 0.1})
             }
             new ScrollObserver(this.svgDrawOnScroll, animationIn)
+        }
+        // * Is view elements
+        if(this.scrollIsViewElements.length > 0) {
+            this.scrollIsViewElements.forEach(item => {
+                const options = {
+                    threshold: 0.5
+                }
+                item.getAttribute('data-is-view') ? options.threshold = item.getAttribute('data-is-view') : null
+                new ScrollObserver(this.scrollIsViewElements, this.isView, null, options)
+            })
         }
     }
 
@@ -323,7 +319,7 @@ class App {
         this.domCalculate()
         // this.splitMainTitle.revert()
         // this.splitSecondTitles.revert()
-        //this.splitLinks.revert()
+        // this.splitLinks.revert()
     }
     resizeEvent () {
         window.addEventListener('resize', this.onResize.bind(this))
