@@ -196,7 +196,7 @@ class App {
         }
         // * show more
         if (targetElement.closest('[data-view-more]')) {
-            e.preventDefault()
+            //e.preventDefault()
     
             const $moreItemsContainer = targetElement.closest('[data-view-more]')
             $moreItemsContainer ? $moreItemsContainer.classList.toggle('show-more') : null
@@ -239,6 +239,10 @@ class App {
             e.preventDefault()
             const root = targetElement.classList.contains('search-form') ? targetElement : targetElement.closest('.search-form')
             root.classList.add('_active')
+        }
+        // * more-info 
+        if (targetElement.closest('[data-view-more]') && (targetElement.closest('.more-info') || targetElement.classList.contains('more-info'))) {
+            e.preventDefault()
         }
         if( !targetElement.closest('.search-form') && document.querySelector('.search-form._active') ) {
             document.querySelector('.search-form').classList.remove('_active')

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 	@@include('html/_head.htm',{
 		"title":"Main - Gooreel"
 	})
@@ -32,7 +32,7 @@
 								</div>
 								<div class="intro-screen__graphics">
 									<div class="graphics-block">
-										<img class="grid" data-src="img/icons/graphic-1.svg" inline-svg alt="Gooreel">
+										<img class="grid" data-src="img/icons/graphic-1.svg" data-inline-svg alt="Gooreel">
 										<img src="img/intro-2.png" data-scale alt="Gooreel">
 									</div>
 								</div>
@@ -43,11 +43,11 @@
 				<!-- === === === INTRO BLOCK === === === -->
 
 				<!-- === === === INFO BLOCK === === === -->
-				<section id="s-about">
+				<div id="s-about">
 					<div class="s-about__container">
 						@@include('html/_info-block.htm', {})
 					</div>
-				</section>
+				</div>
 				<!-- === === === INFO BLOCK === === === -->
 
 				<!-- === === === S-SOLUTIONS === === === -->
@@ -63,7 +63,7 @@
 								})
 								@@include('html/_more-info-link.htm', {
 									"text": "More info",
-									"link": "about.html"
+									"link": "team.html"
 								})
 							</div>
 						</div>
@@ -141,7 +141,7 @@
 								})
 								@@include('html/_more-info-link.htm', {
 									"text": "About team",
-									"link": "about.html"
+									"link": "team.html"
 								})
 							</div>
 						</div>
@@ -195,7 +195,7 @@
 						</div>
 
 						<!-- === === === INFO BLOCK === === === -->
-						<article class="info-block">
+						<div class="info-block">
 							<div class="info-block__wrapper">
 								<div class="info-block__body">
 									<div class="info-block__image-ibg">
@@ -209,13 +209,13 @@
 											<p>Booongo team are professional developers of the best game content in the Gambling and Entertainment. We are lucky to gather gaming fans under one roof to deliver a high-end product to a very dynamic gaming market.</p>
 											@@include('html/_link-btn.htm', {
 												"text": "All vacancies",
-												"link": "vacancy.html"
+												"link": "career.html"
 											})
 										</div>
 									</div>
 								</div>
 							</div>
-						</article>
+						</div>
 						<!-- === === === INFO BLOCK === === === -->
 
 					</div>
@@ -290,7 +290,7 @@
 							<div class="square square_circle-link" data-is-view>
 								<div>
 									@@include('html/_more-info-link.htm', {
-										"link": "team.html",
+										"link": "partners.html",
 										"text": "View all"
 									})
 								</div>

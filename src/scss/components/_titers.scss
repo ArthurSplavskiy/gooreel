@@ -14,8 +14,9 @@
         right: -15%;
         transform: translate(15%, -10%);
         @media(max-width: $mobileSmall) {
-            right: -40%;
-            transform: translate(40%, -50%);
+            top: 100%;
+            left: 60%;
+            transform: translate(0);
         }
     }
 }

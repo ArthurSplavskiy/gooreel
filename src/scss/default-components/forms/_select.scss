@@ -83,10 +83,8 @@
 		&._select-selected {
 			background-color: #eee;
 		}
-		@media (any-hover: hover) {
-			&:hover {
-				background: #d9d9d9;
-			}
+		&:hover {
+			background: #d9d9d9;
 		}
 	}
 

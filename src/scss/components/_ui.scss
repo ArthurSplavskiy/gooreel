@@ -35,8 +35,14 @@
     background: #3F9A70;
     width: rem(438);
     height: rem(438);
-    filter: blur(110px);
+    filter: blur(68px); // 110
     z-index: -1;
+
+    @media(max-width: $mobileSmall) {
+        width: rem(242)!important;
+        height: rem(242)!important;
+        filter: blur(60px);
+    }
 }
 
 // * section-descr
@@ -81,18 +87,16 @@
         height: 100%;
         transition: all $tf2;
     }
-    @media(any-hover: hover) {
-        &:hover {
-            background: $white;
-            color: $mainColor;
-            border-color: $mainColor;
+    &:hover {
+        background: $white;
+        color: $mainColor;
+        border-color: $mainColor;
 
-            svg {
-                transform: scale(0.8) rotate(45deg);
-            }
-            circle[stroke] {
-                stroke:  $mainColor;
-            }
+        svg {
+            transform: scale(0.8) rotate(45deg);
+        }
+        circle[stroke] {
+            stroke:  $mainColor;
         }
     }
 }
@@ -191,11 +195,9 @@ a.more-info {
         height: 1px;
         width: 100%;
     }
-    @media(any-hover: hover) {
-        &:hover {
-            svg {
-                transform: rotate(45deg);
-            }
+    &:hover {
+        svg {
+            transform: rotate(45deg);
         }
     }
 }
@@ -622,13 +624,11 @@ a.more-info {
     border: 1px solid $white;
     transition: background $tf2;
 
-    @media(any-hover: hover) {
-        &:hover {
-            background: $white;
+    &:hover {
+        background: $white;
 
-            img {
-                transform: translateX(2px);
-            }
+        img {
+            transform: translateX(2px);
         }
     }
 
@@ -757,14 +757,12 @@ a.more-info {
             transition: transform $tf2;
             transform: scale(1.1);
         }
-        @media(any-hover: hover) {
-            &:hover {    
-                img {
-                    transform: scale(1);
-                }
-                &:before {
-                    opacity: 0.5;
-                }
+        &:hover {    
+            img {
+                transform: scale(1);
+            }
+            &:before {
+                opacity: 0.5;
             }
         }
     }
@@ -927,6 +925,12 @@ a.more-info {
             display: none;
         }
     }
+    &__slide {
+        height: 100%!important;
+        & > div {
+            height: 100%;
+        }
+    }
 }
 
 // * skills list -> vacancy.html
@@ -982,6 +986,9 @@ a.more-info {
                 @media(max-width: $mobile) {
                     margin-right: rem(16);
                 }
+            }
+            &:not(:last-child) {
+                margin-bottom: rem(12);
             }
         }
     }

@@ -108,12 +108,10 @@ html.menu-open .header-shadow {
                 transition: transform 0.3s ease;
             }
 
-            @media (any-hover: hover){
-				&:hover{
-					&:before {
-						transform-origin: 0 0;
-						transform: scale3d(1, 1, 1);
-					}
+            &:hover{
+				&:before {
+					transform-origin: 0 0;
+					transform: scale3d(1, 1, 1);
 				}
 			}
 		}
@@ -155,14 +153,12 @@ html.menu-open .header-shadow {
 			display: none;
 		}
 
-		@media(any-hover: hover) {
-			&:hover {
-				.lang-toggle__links li {
-					opacity: 1;
-				}
-				.lang-toggle__choose {
-					transform: translateY(-80%);
-				}
+		&:hover {
+			.lang-toggle__links li {
+				opacity: 1;
+			}
+			.lang-toggle__choose {
+				transform: translateY(-80%);
 			}
 		}
 		
@@ -205,12 +201,10 @@ html.menu-open .header-shadow {
                 transition: transform 0.3s ease;
             }
 
-			@media (any-hover: hover){
-				&:hover{
-					&:before {
-						transform-origin: 0 0;
-						transform: scale3d(1, 1, 1);
-					}
+			&:hover{
+				&:before {
+					transform-origin: 0 0;
+					transform: scale3d(1, 1, 1);
 				}
 			}
 		}
@@ -270,14 +264,12 @@ html.menu-open .header-shadow {
 		pointer-events: none;
 	}
 
-	@media (any-hover: hover){
-		&:hover{
-			span:nth-child(1) {
-				transform: translateX(-2px);
-			}
-			span:nth-child(3) {
-				transform: translateX(2px);
-			}
+	&:hover{
+		span:nth-child(1) {
+			transform: translateX(-2px);
+		}
+		span:nth-child(3) {
+			transform: translateX(2px);
 		}
 	}
 

@@ -270,11 +270,9 @@
     }
     .game-slide {
 
-        @media (any-hover: hover){
-            &:hover{
-                svg {
-                    transform: translate(0);
-                }
+        &:hover{
+            svg {
+                transform: translate(0);
             }
         }
         &__image-ibg {
@@ -487,6 +485,33 @@
         .animate-circle {
             bottom: -50%;
             left: 0;
+        }
+    }
+
+    .skills-list__footer {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .section-descr {
+            margin-bottom: 0;
+        }
+    }
+    @media(max-width: $mobileSmall) {
+        .skills-list__item {
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: rem(32);
+        }
+        .info-layout__promo .link-btn {
+            margin-bottom: rem(64);
+            margin-top: rem(32);
+        }
+    }
+    .social-list {
+        flex-direction: column;
+        margin-top: rem(24);
+        li:not(:last-child) {
+            margin-bottom: rem(12);
         }
     }
 }

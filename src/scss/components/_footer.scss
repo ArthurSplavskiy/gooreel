@@ -91,20 +91,18 @@
             margin-bottom: rem(15);
         }
 
-        @media (any-hover: hover){
-            &:hover{
-                background: $white;
-                border-color: $grey2;
+        &:hover{
+            background: $white;
+            border-color: $grey2;
 
-                svg {
-                    transform: translateY(-10px);
-                    path {
-                        stroke: $black;
-                    }
+            svg {
+                transform: translateY(-10px);
+                path {
+                    stroke: $black;
                 }
-                span {
-                    color: $black;
-                }
+            }
+            span {
+                color: $black;
             }
         }
     }
