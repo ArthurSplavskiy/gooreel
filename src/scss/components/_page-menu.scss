@@ -130,8 +130,10 @@
     color: $lightBlack;
 
     @media(max-width: $mobileSmall) {
-        grid-template-columns: 1fr;
-        gap: rem(8);
+        // grid-template-columns: 1fr;
+        // gap: rem(8);
+        grid-template-columns: rem(87) 1fr;
+        gap: rem(32);
     }
 
     &__title {

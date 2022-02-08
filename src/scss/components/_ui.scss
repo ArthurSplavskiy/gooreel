@@ -37,10 +37,11 @@
     height: rem(438);
     filter: blur(68px); // 110
     z-index: -1;
+    border-radius: 100%;
 
     @media(max-width: $mobileSmall) {
-        width: rem(242)!important;
-        height: rem(242)!important;
+        // width: rem(242)!important;
+        // height: rem(242)!important;
         filter: blur(60px);
     }
 }
@@ -304,18 +305,19 @@ a.more-info {
         //border: 0.5px solid $green;
         overflow: hidden;
         background: $grey;
+        img {
+            filter: grayscale(1);
+            transition: filter 0.3s ease-in-out;
+        }
         
         &:hover {
-            img {
-                filter: grayscale(1);
-            }
+            
             .square__link-icon svg {
                 transform: translate(2px, -2px);
             }
-        }
-
-        img {
-            transition: filter 0.3s ease-in-out;
+            img {
+                filter: grayscale(0);
+            }
         }
 
         @media(max-width: $mobileSmall) {
@@ -436,12 +438,6 @@ a.more-info {
                 @media(max-width: $mobile) {
                     display: none;
                 }
-            }
-        }
-
-        &:nth-child(5) {
-            @media(max-width: $mobile) {
-                order: 6;
             }
         }
 
@@ -580,6 +576,7 @@ a.more-info {
                 @extend %geometria40-medium;
                 text-transform: uppercase;
                 color: $green;
+                line-height: 100%!important;
             }
         }
         &_circle-link {
@@ -640,10 +637,15 @@ a.more-info {
 
 // * vacancy-card
 .vacancy-card {
-    min-width: rem(288);
+    min-width: rem(260);
     display: flex;
     flex-direction: column;
     position: relative;
+
+    h3 {
+        @extend %geometria24-18-medium;
+        text-transform: inherit;
+    }
     
     @media(min-width: $mobileSmall) {
         padding-left: rem(40);
@@ -673,23 +675,9 @@ a.more-info {
             margin-bottom: em(16);
         }
 
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 100%;
-            height: 1px;
-            width: 100%;
-            background: $lightBlack;
-            transform-origin: 100% 100%;
-            transform: scale3d(0, 1, 1);
-            transition: transform 0.3s ease;
-        }
-
         &:hover {
-            &:before {
-                transform-origin: 0 0;
-                transform: scale3d(1, 1, 1);
+            h3 {
+                text-decoration: underline;
             }
         }
     }
@@ -735,10 +723,16 @@ a.more-info {
     display: flex;
     flex-direction: column;
 
+    h3 {
+        @extend %geometria24-18-medium;
+        text-transform: inherit;
+    }
+
     &__image-ibg {
         padding-bottom: 67%;
         overflow: hidden;
         margin-bottom: em(16);
+        background: #000;
 
         &:before {
             content: "";
@@ -876,10 +870,16 @@ a.more-info {
 .page-slider {
     z-index: z('page-slider');
 
-    .page-section__description {
-        @media(max-width: $tablet) {
-            display: none;
-        }
+    // .page-section__description {
+    //     @media(max-width: $tablet) {
+    //         display: none;
+    //     }
+    // }
+
+    &__navigation {
+        margin-top: rem(16);
+        display: flex;
+        justify-content: flex-end;
     }
 
     &__slider {
@@ -890,7 +890,7 @@ a.more-info {
         }
     }
     &__buttons {
-        display: flex;
+        display: inline-flex;
         border: 1px solid $green;
         div {
             @extend %flex-center;
@@ -913,7 +913,7 @@ a.more-info {
             }
 
             svg {
-                max-width: rem(16);
+                width: rem(16);
 
                 path {
                     transition: fill $tf2;
@@ -921,9 +921,9 @@ a.more-info {
             }
         }
 
-        @media(max-width: $tablet) {
-            display: none;
-        }
+        // @media(max-width: $tablet) {
+        //     display: none;
+        // }
     }
     &__slide {
         height: 100%!important;
@@ -1209,6 +1209,7 @@ a.more-info {
             @extend %geometria60-40-medium;
             margin-bottom: rem(56);
             letter-spacing: em(-0.5);
+            line-height: 110%;
         }
         h1 + p {
             @extend %geometria24-18-medium;
@@ -1348,6 +1349,25 @@ a.more-info {
                     transform-origin: 0 0;
                     transform: scale3d(1, 1, 1);
                 }
+            }
+        }
+    }
+}
+
+// * touch-slider
+.touch-slider {
+    &__slider {
+        overflow: visible!important;
+
+        .swiper-slide {
+            
+            width: rem(344);
+
+            @media(min-width: $fullHd) {
+                width: rem(370);
+            }
+            @media(max-width: $mobileSmall) {
+                width: rem(288);
             }
         }
     }

@@ -573,7 +573,7 @@ export function uniqArray(array) {
 }
 
 export function setPhoneMask() {
-	const phoneInputs = document.querySelectorAll('input[phone-mask]');
+	const phoneInputs = document.querySelectorAll('input[data-phone-mask]');
 
 	if(phoneInputs) {
 		phoneInputs.forEach(phoneInput => {

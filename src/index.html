@@ -153,7 +153,7 @@
 				<!-- === === === S-TEAM === === === -->
 
 				<!-- === === === S-TEAM === === === -->
-				<section id="s-jobs" class="page-section">
+				<section class="page-section s-jobs">
 					<div class="animate-circle"></div>
 					<div class="page-section__container">
 						<div class="page-section__heading">
@@ -167,31 +167,33 @@
 							</div>
 						</div>
 
-						<div class="cards-grid">
-							@@include('html/_vacancy-card.htm', {
-								"id": "01",
-								"title": "Promo Marketing Manager",
-								"location": "Kyiv",
-								"offer": "Marketing",
-								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-								"link": "vacancy.html"
-							})
-							@@include('html/_vacancy-card.htm', {
-								"id": "02",
-								"title": "Promo Marketing Manager",
-								"location": "Kyiv",
-								"offer": "Marketing",
-								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-								"link": "vacancy.html"
-							})
-							@@include('html/_vacancy-card.htm', {
-								"id": "03",
-								"title": "Promo Marketing Manager",
-								"location": "Kyiv",
-								"offer": "Marketing",
-								"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
-								"link": "vacancy.html"
-							})
+						<div class="touch-slider__slider">
+							<div class="touch__swiper">
+								@@include('html/_vacancy-card.htm', {
+									"id": "01",
+									"title": "Promo Marketing Manager",
+									"location": "Kyiv",
+									"offer": "Marketing",
+									"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+									"link": "vacancy.html"
+								})
+								@@include('html/_vacancy-card.htm', {
+									"id": "02",
+									"title": "Promo Marketing Manager",
+									"location": "Kyiv",
+									"offer": "Marketing",
+									"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+									"link": "vacancy.html"
+								})
+								@@include('html/_vacancy-card.htm', {
+									"id": "03",
+									"title": "Promo Marketing Manager",
+									"location": "Kyiv",
+									"offer": "Marketing",
+									"text": "We are looking for Promo Manager to be a part of our marketing team. If you are a proactive and creative person, let’s talk, we are on the same path:)",
+									"link": "vacancy.html"
+								})
+							</div>
 						</div>
 
 						<!-- === === === INFO BLOCK === === === -->
@@ -236,24 +238,26 @@
 								})
 								@@include('html/_more-info-link.htm', {
 									"text": "View All",
-									"link": "about.html"
+									"link": "news.html"
 								})
 							</div>
 						</div>
 
-						<div class="cards-grid">
-							@@include('html/_news-card.htm', {
-								"title": "Goreel grows latam footprint with doradobet",
-								"link": "news.html"
-							})
-							@@include('html/_news-card.htm', {
-								"title": "Goreel grows latam footprint with doradobet",
-								"link": "news.html"
-							})
-							@@include('html/_news-card.htm', {
-								"title": "Goreel grows latam footprint with doradobet",
-								"link": "news.html"
-							})
+						<div class="touch-slider__slider">
+							<div class="touch__swiper">
+								@@include('html/_news-card-lazy.htm', {
+									"title": "Goreel grows latam footprint with doradobet",
+									"link": "article.html"
+								})
+								@@include('html/_news-card-lazy.htm', {
+									"title": "Goreel grows latam footprint with doradobet",
+									"link": "article.html"
+								})
+								@@include('html/_news-card-lazy.htm', {
+									"title": "Goreel grows latam footprint with doradobet",
+									"link": "article.html"
+								})
+							</div>
 						</div>
 
 					</div>

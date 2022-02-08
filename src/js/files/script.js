@@ -175,7 +175,7 @@ class App {
                 _slideToggle(spollerBody)
             }
         }
-        if (targetElement.closest('[anchor-link]')) {
+        if (targetElement.closest('[data-anchor]')) {
             gotoBlock(targetElement.getAttribute("href"))
 			e.preventDefault();
 		}

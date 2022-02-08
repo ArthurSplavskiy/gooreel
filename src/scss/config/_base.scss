@@ -138,6 +138,9 @@ h2 {
 			transform: translateY(100%);
 		}
 	}
+	@media(max-width: $mobileSmall) {
+        line-height: 110%!important;
+    }
 }
 h3 {
 	@extend %geometria40-medium;

@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Lazy } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -46,7 +46,11 @@ function initSliders() {
 
 	if (document.querySelector('#employee-page__slider-1')) {
 		new Swiper('#employee-page__slider-1', {
-			modules: [Navigation],
+			modules: [Navigation, Lazy],
+			lazy: {
+				loadPrevNext: true,
+				loadPrevNextAmount: 4
+			},
 			observer: true,
 			observeParents: true,
 			slidesPerView: 3,
@@ -54,7 +58,6 @@ function initSliders() {
 			autoHeight: true,
 			speed: 800,
 			grabCursor: true,
-			//lazy: true,
 			// Arrows
 			navigation: {
 				nextEl: '.employee-page__slider-1__next',
@@ -99,8 +102,6 @@ function initSliders() {
 			autoHeight: true,
 			speed: 800,
 			grabCursor: true,
-			//lazy: true,
-			// Arrows
 			navigation: {
 				nextEl: '.vacancy-page__slider-1__next',
 				prevEl: '.vacancy-page__slider-1__prev',
@@ -144,8 +145,6 @@ function initSliders() {
 			autoHeight: true,
 			speed: 800,
 			grabCursor: true,
-			//lazy: true,
-			// Arrows
 			navigation: {
 				nextEl: '.game-slider-1__next',
 				prevEl: '.game-slider-1__prev',
@@ -156,6 +155,34 @@ function initSliders() {
 			},
 		})
 	}
+
+	// TOUCH SLIDER
+	if(document.querySelector('.touch-slider__slider')) {
+		//const sliders = document.querySelectorAll('.touch-slider')
+
+		new Swiper('.touch-slider__slider', {
+			modules: [Lazy],
+			lazy: {
+				checkInView: true,
+				loadPrevNext: true,
+				loadPrevNextAmount: 4
+			},
+			slidesPerView: "auto",
+			spaceBetween: 40,
+			breakpoints: {
+				320: {
+					spaceBetween: 8,
+				},
+				480: {
+					spaceBetween: 16,
+				},
+				768: {
+					spaceBetween: 40,
+				}
+			}
+		});
+	}
+	//=====================================================================================
 
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)

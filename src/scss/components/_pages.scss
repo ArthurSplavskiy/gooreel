@@ -50,10 +50,10 @@
     #s-about {
         @include adaptiveValue('margin-bottom', 168, 96, 0);
     }
-    #s-jobs {
+    .s-jobs {
         position: relative;
     }
-    #s-jobs .cards-grid {
+    .s-jobs .touch-slider__slider {
         margin-bottom: rem(72);
         @media(max-width: $mobileSmall) {
             margin-bottom: rem(64);
@@ -79,23 +79,14 @@
     }
     .s-anchievements {
         position: relative;
-        // .animate-circle {
-        //     bottom: 20%;
-        //     left: -20%;
-        //     @media(max-width: $tablet) {
-        //         left: -40%;
-        //     }
-        //     @media(max-width: $mobile) {
-        //         left: -70%;
-        //     }
-        //     @media(max-width: $mobileSmall) {
-        //         left: -100%;
-        //     }
-        // }
         .info-grid {
             margin-bottom: rem(32);
             @media(max-width: $mobileSmall) {
                 margin-bottom: rem(72);
+
+                .square:nth-child(7) {
+                    order: 6;
+                }
             }
         }
     }
@@ -157,6 +148,13 @@
             }
         }
     }
+    .info-grid {
+        .square:nth-child(5) {
+            @media(max-width: $mobile) {
+                order: 6;
+            }
+        }
+    }
 }
 
 // * GAME PAGE
@@ -175,6 +173,10 @@
             .info-block__title {
                 order: 2;
             }
+        }
+
+        a {
+            display: block;
         }
 
         &__buttons {
@@ -204,7 +206,8 @@
             }
 
             svg {
-                max-width: rem(16);
+                width: rem(16);
+                user-select: none;
 
                 path {
                     transition: fill $tf2;
@@ -283,6 +286,7 @@
         &__description {
             display: flex;
             justify-content: space-between;
+            position: relative;
             span {
                 @extend %geometria24-18-medium;
                 margin-right: rem(20);
@@ -292,9 +296,12 @@
                 @extend %geometria14-regular;
             }
             svg {
+                position: absolute;
+                right: 0;
                 transform: translateX(-5px);
                 transition: transform $tf2;
-                max-width: rem(20);
+                width: rem(20);
+                user-select: none;
                 path {
                     fill: $mainColor;
                 }
@@ -442,7 +449,7 @@
     .intro-screen .animate-circle {
         top: -220%;
         @media(max-width: $mobileSmall) {
-            top: -350%;
+            top: -150%;
         }
     }
 }
@@ -485,6 +492,9 @@
         .animate-circle {
             bottom: -50%;
             left: 0;
+            @media(max-width: $mobile) {
+                display: none;
+            }
         }
     }
 

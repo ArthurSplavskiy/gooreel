@@ -78,14 +78,12 @@
 
         &:nth-child(even) {
             span {
-                text-stroke: 1px $mainColor;
                 -webkit-text-stroke: 1px $mainColor;
             }
         }
 
         span {
             color: transparent;
-            text-stroke: 1px $white;
             -webkit-text-stroke: 1px $white;
             margin-left: rem(40);
             font-weight: 700;
